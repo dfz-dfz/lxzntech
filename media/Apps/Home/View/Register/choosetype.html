@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>注册</title>
+      <link rel="stylesheet" href="__PUBLIC__/css/register.css">
+      <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+  </head>
+  <body>
+      <div class="all">
+          <div class="header">
+              <div class="logo"></div>
+              <div class="login">已有账号<a href="">马上登陆</a></div>
+          </div>
+          <div class="main">
+              <!-- 步骤 -->
+              <div class="step">
+                  <div class="stepm">
+                      <div class="current">
+                          &#10003
+                      </div>
+                      <h5 class="current">
+                          注册账号
+                      </h5>
+                  </div>
+                  <div class="ellipsis current">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                  </div>
+                  <div class="stepm" class="current">
+                      <div class="current">
+                          2
+                      </div>
+                      <h5 class="current">
+                          选择类型
+                      </h5>
+                  </div>
+                  <div class="ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                  </div>
+                  <div class="stepm">
+                      <div>
+                          3
+                      </div>
+                      <h5>
+                          登陆注册
+                      </h5>
+                  </div>
+              </div>
+              <!-- 信息 -->
+              <div class="messagesType">
+                  <div class="type">
+                      <ul>
+                        <li>
+                            <div class="typeImg">&#xe686;</div>
+                            <div class="typeChoose"><input type="radio" name="mediaType" value="1" class="inputRadio"/><span>个人</span></div>
+                            <div class="typeText">适合个人创作者注册和申请</div>
+                        </li>
+                        <li>
+                          <div class="typeImg">&#xe600;</div>
+                          <div class="typeChoose"><input type="radio" name="mediaType" value="2" class="inputRadio"/><span>媒体</span></div>
+                          <div class="typeText">适合报纸，杂志，广播电视台，电台，互联网等传统媒体及有新闻咨询的网站。</div>
+                        </li>
+                        <li>
+                          <div class="typeImg">&#xe894;</div>
+                          <div class="typeChoose"><input type="radio" name="mediaType" value="3" class="inputRadio"/><span>企业</span></div>
+                          <div class="typeText">适合企业，公司，分支机构，企业相关品牌，产品与服务等。</div>
+                        </li>
+                        <li>
+                          <div class="typeImg">&#xe648;</div>
+                          <div class="typeChoose"><input type="radio" name="mediaType" value="4" class="inputRadio"/><span>政府</span></div>
+                          <div class="typeText">适合全国各级各地行政机构，行政机关直属机构，党群机关，事业单位等。</div>
+                        </li>
+                        <li>
+                          <div class="typeImg">&#xe61d;</div>
+                          <div class="typeChoose"><input type="radio" name="mediaType" value="5" class="inputRadio"/><span>其他组织</span></div>
+                          <div class="typeText">适合各类公共场馆，公益机构，学校，社团，民间组织等机构团体。</div>
+                        </li>
+                      </ul>
+                  </div>
+                  <div class="avow">
+                      <ul>
+                        <li><span></span>类型选择完成并认证审核后，将不可更改</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="footer">
+              <bottom onclick="nextLoading()">
+                下一步
+              </bottom>
+          </div>
+      </div>
+  </body>
+  <script type="text/javascript">
+      var item;
+      $(function(){
+        $(".inputRadio").click(function () {
+            if ($(this).attr("checked")) {
+              $('.typeImg').removeClass('current');
+              $(this).parent().siblings($('.typeImg')).addClass('current');
+            }
+            item = $(this).val();
+        });
+      })
+      function nextLoading(){
+        $.ajax({
+          url: "{:U('Home/Register/doChoose')}",
+          type:'post',
+          data:{
+            'type':item
+          },
+          success:function(data){
+            if(data.status == 1){
+              window.location.href = "{:U('Home/Register/info')}";
+            }else{
+              alert(data.msg);
+            }
+          }
+        })
+      }
+  </script>
+  </html>

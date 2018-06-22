@@ -1,0 +1,184 @@
+    /*屏幕小于1280pxl*/
+    @media screen and (max-width: 1660px){
+        .pageoneLeft {
+            left: 16%;
+        }
+
+    }
+    @media screen and (max-width: 1380px){
+        .pageoneLeft {
+            font-size: 50px;
+            left: 10%;
+        }
+
+    }      
+    @media screen and (max-width: 1148px){
+        .pageoneLeft {
+            font-size: 40px;
+            left: 15%;
+        }
+
+    }    
+    /*屏幕小于1280pxl*/
+    @media screen and (max-width: 1280px){
+        .pageoneRight{
+            width: 600px;
+            height: 504px;
+            bottom:0;
+            right:0;
+        }
+        .pageone,.pagetwo{
+            background-size: 1920px 100%;
+        }
+
+    }
+    /*屏幕小于980pxl*/
+    @media screen and (max-width: 980px){
+        .pageoneRight{
+            width: 600px;
+            height: 504px;
+            bottom:0;
+            right:0;
+        }
+        .pageoneLeft{
+            top:20%;
+            left:15%;
+            font-size: 40px;
+            text-align: left;
+          }
+        .pageoneLeftsmall{
+            font-size: 20px;
+        }
+    }
+    @media screen and (max-width: 880px){
+        .navbar .content {
+            right: 2%;
+        }
+    }
+    /*屏幕小于780pxl*/
+    @media screen and (max-width: 780px){
+        .navbar {
+            height: 54px;
+        }
+        .navbar .navbar_img {
+            position: absolute;
+            left: 0;
+        }
+        .navbar .navbar_img img {
+            width: 100px;
+        }
+        .content{
+            display: none;
+        }
+        .nav{
+            display: block;
+        }
+        .pageoneRight{
+            width: 500px;
+            height: 420px;
+            bottom:0;
+            right:-12%;
+        }
+        .pageoneLeft {
+            top:20%;
+            left:40%;
+            font-size: 40px;
+            text-align: left;
+        }
+        .pageoneLeft p {
+            margin: 0;
+            font-size: 36px;
+        }          
+        .pageoneLeft .pageoneLeftsmall {
+            font-size: 20px;
+            padding-top: 8px;
+        }
+        .pagetwocenter p {
+            margin-bottom: 1%
+        }        
+    }
+    /*屏幕小于500pxl*/
+    @media screen and (max-width: 500px){
+        .navbar .navbar_img {
+            position: absolute;
+            left: 0;
+        }
+        .content{
+            display: none;
+        }
+        .nav{
+            display: block;
+        }
+        .pageoneRight{
+            width: 380px;
+            height: 319px;
+            bottom:8%;
+            right:-22%;
+        }
+        .pageoneLeft{
+            top:20%;
+            left:30%;
+            font-size: 30px;
+            text-align: left;
+          }
+        .pageoneLeftsmall{
+            font-size: 20px;
+        }
+        .pagetwocenter{
+            left:50%;
+            top:30%;
+            font-size: 30px;
+            margin-left:-73px;
+        }
+        .pagetwocenter p{
+            margin-bottom: 1%
+        }
+        .pagetwocentersmall{
+            font-size: 15px;
+        }
+    }
+    @media screen and (max-width: 375px) {
+        .pageoneLeft p{
+            margin: 10px 0;
+        }        
+    }
+    /*屏幕小于320pxl*/
+    @media screen and (max-width: 320px){
+        .content{
+            display: none;
+        }
+        .nav{
+            display: block;
+        }
+        .pageoneRight{
+            width: 361px;   
+            height: 300px;
+            bottom:8%;
+            right:-22%;
+        }
+        .pageoneLeft{
+            top:20%;
+            left:30%;
+            font-size: 20px;
+            text-align: left;
+            width: 160px;
+          }
+        .pageoneLeft p{
+            margin: 0;
+        }
+        .pageoneLeftsmall{
+            font-size: 15px;
+        }
+    }
+    /*屏幕大于780px;*/
+	@media screen and (min-width: 780px){
+		.navmue {
+			display: none !important;
+		}
+	}
+    /*屏幕大于1920px;*/
+    @media screen and (min-width: 1920px){
+        .pageone,.pagetwo{
+            background-size: 100% 100%;
+        }
+    }
