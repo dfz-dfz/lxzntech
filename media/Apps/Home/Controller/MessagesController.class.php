@@ -61,7 +61,7 @@
 			}else{
 				$data['status'] = 0;
 				$data['data'] = [];	
-				$data['page'] = 0;
+				$data['page'] = 1;
 			}
 			$this -> ajaxReturn($data);
 		}

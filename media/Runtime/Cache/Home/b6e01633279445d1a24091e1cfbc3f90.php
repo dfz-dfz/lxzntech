@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>账号设置</title>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/icon/iconfont.css">
-    <link rel="stylesheet" href="__PUBLIC__/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/laydate.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
+    <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="__PUBLIC__/css/public.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/public.css" media="all">
 </head>
 <style>
     body,
@@ -370,11 +370,11 @@
 
 <body>
     <!-- 头部 -->
-    {:W('Cate/header')}
+    <?php echo W('Cate/header');?>
     <div class="firstpage">
         <!-- 左侧导航栏 -->
         <div class="container">
-            {:W('Cate/nav')}
+            <?php echo W('Cate/nav');?>
             <div class="content">
                 <!-- 账号设置部分 -->
                 <div class="content_all">
@@ -396,7 +396,7 @@
                     <div class="truename">
                         <p>
                             <span>账号名称</span>
-                            <span>{$res['nickname']}</span>
+                            <span><?php echo ($res['nickname']); ?></span>
                             <i class="iconfont icon-bianji basic"></i>
                         </p>
                     </div>
@@ -404,7 +404,7 @@
                     <div class="truename">
                         <p>
                             <span>账号简介</span>
-                            <span>{$res['introduce']}</span>
+                            <span><?php echo ($res['introduce']); ?></span>
                             <i class="iconfont icon-bianji basic"></i>
                         </p>
                     </div>
@@ -413,7 +413,7 @@
                         <span class="smallheaderscupture">头像</span>
                         <span class="headerscupture">
                             <span class="logo">
-                                <img src="{$res['avatar']}">
+                                <img src="<?php echo ($res['avatar']); ?>">
                             </span>
                         </span>
 
@@ -426,7 +426,7 @@
                     <div class="truename">
                         <p>
                             <span>领域</span>
-                            <span>{$res['territory']}</span>
+                            <span><?php echo ($res['territory']); ?></span>
                             <i class="iconfont icon-bianji basic" style="right: 4%;"></i>
                         </p>
                     </div>
@@ -440,21 +440,21 @@
                     <div class="truename">
                         <p>
                             <span>企业机构信息</span>
-                            <span>{$res['company']}</span>
+                            <span><?php echo ($res['company']); ?></span>
                               <i class="iconfont icon-bianji company" style="right: 4%;"></i>
                         </p>
                     </div>
                     <div class="truename">
                         <p>
                             <span>企业地址</span>
-                            <span>{$res['address']}</span>
+                            <span><?php echo ($res['address']); ?></span>
                             <i class="iconfont icon-bianji company" style="right: 4%;"></i>
                         </p>
                     </div>
                     <div class="truename">
                         <p>
                             <span>官方网站</span>
-                            <span>{$res['website']}</span>
+                            <span><?php echo ($res['website']); ?></span>
                             <i class="iconfont icon-bianji company" style="right: 4%;"></i>
                         </p>
                     </div>
@@ -469,26 +469,26 @@
                     <div class="truename">
                         <p>
                             <span>联系人真实姓名</span>
-                            <span>{$res['linkman']}</span>
+                            <span><?php echo ($res['linkman']); ?></span>
                         </p>
                     </div>
 
                     <div class="truename">
                         <p>
                             <span>身份证号</span>
-                            <span>{$res['identity']}</span>
+                            <span><?php echo ($res['identity']); ?></span>
                         </p>
                     </div>
                     <div class="truename">
                         <p>
                             <span>账号简介</span>
-                            <span>{$res['linkphone']}</span>
+                            <span><?php echo ($res['linkphone']); ?></span>
                         </p>
                     </div>
                     <div class="truename">
                         <p>
                             <span>账号简介</span>
-                            <span>{$res['linkmail']}</span>
+                            <span><?php echo ($res['linkmail']); ?></span>
                         </p>
                     </div>
                 </div>
@@ -501,8 +501,8 @@
     </div>
 
 
-    <script src="__PUBLIC__/js/jquery-3.3.1.min.js"></script>
-    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
+    <script src="/project/media/Public/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
      //上传头像
@@ -531,48 +531,48 @@
          $(this).trigger('blur');
          });
         $('#modification').click(function() {
-            window.location.href = "{:U('Home/Account/apply')}";
+            window.location.href = "<?php echo U('Home/Account/apply');?>";
         });
         $('.basic').click(function() {
-            window.location.href = "{:U('Home/Account/basicapply')}";
+            window.location.href = "<?php echo U('Home/Account/basicapply');?>";
         });
         $('.company').click(function() {
-            window.location.href = "{:U('Home/Account/company')}";
+            window.location.href = "<?php echo U('Home/Account/company');?>";
         });
         //互动消息
         // $('.firstpage').click(function (event) {
-        //     window.location.href = "{:U('Home/Admin/index')}";
+        //     window.location.href = "<?php echo U('Home/Admin/index');?>";
         // });
         $('#message').click(function () {
-            window.location.href = "{:U('Home/Messages/fans')}";
+            window.location.href = "<?php echo U('Home/Messages/fans');?>";
         });
         //粉丝量
         $('#fansnum').click(function () {
-            window.location.href = "{:U('Home/FansNumber/FansNumber')}";
+            window.location.href = "<?php echo U('Home/FansNumber/FansNumber');?>";
         });
         //粉丝量统计
         $('#fansnumcount').click(function () {
-            window.location.href = "{:U('Home/fans/index')}";
+            window.location.href = "<?php echo U('Home/fans/index');?>";
         });
         //图文统计
         $('#totalsingle').click(function () {
-            window.location.href = "{:U('Home/Count/single')}";
+            window.location.href = "<?php echo U('Home/Count/single');?>";
         });
         //我的素材
         $('#attachment').click(function () {
-            window.location.href = "{:U('Home/Attachment/index')}";
+            window.location.href = "<?php echo U('Home/Attachment/index');?>";
         });
         //写文章
         $('#edit').click(function () {
-            window.location.href = "{:U('Home/Main/edit')}";
+            window.location.href = "<?php echo U('Home/Main/edit');?>";
         });
         //我的内容
         $('#content').click(function () {
-            window.location.href = "{:U('Home/Main/main')}";
+            window.location.href = "<?php echo U('Home/Main/main');?>";
         });
         //我的内容
         $('#accountset').click(function () {
-            window.location.href = "{:U('Home/Account/index')}";
+            window.location.href = "<?php echo U('Home/Account/index');?>";
         });
     </script>
 </body>

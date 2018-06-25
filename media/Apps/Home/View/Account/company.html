@@ -280,11 +280,11 @@
         display: inline-block;
         width: 30%;
     }
-  .truename input{
-    width: 200px;
-    height: 25px;
-    font-size: 14px;
-  }
+    .truename input{
+      width: 200px;
+      height: 25px;
+      font-size: 14px;
+    }
     /* 上传部分 */
     /* 上传部分 */
 
@@ -367,12 +367,12 @@
             <div class="content">
                 <!-- 申请修改部分 -->
                 <div class="content_all">
-                    <a href="javascript:;">申请修改</a>
+                    <a href="javascript:;">修改信息</a>
                     <span></span>
                 </div>
                 <p class="replaceall">
                     <i class="iconfont icon">&#xe60e;</i>
-                    <span style="margin-left: 15px;"> 提交相关企业证明资料之后，由后台人员审核通过后修改</span>
+                    <span style="margin-left: 15px;"> 企业信息15天内只能修改一次</span>
                 </p>
                 <!-- 公告部分 -->
                 <div class="main">
@@ -380,54 +380,33 @@
                         <div class="allinformation_number">
                             <i></i>
                             <p>
-                                <strong>运营人员身份信息</strong>
+                                <strong>企业信息</strong>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
-                                <span>联系人真实姓名</span>
+                                <span>企业机构信息</span>
                                 <input type="text" id="linkman" value="">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
-                                <span>身份证号</span>
-                                <input type="text" id="identity" value="">
-                                <span></span>
-                            </p>
-                        </div>
-                        <div class="truename">
-                            <p>
-                                <span>联系人电话</span>
+                                <span>企业地址</span>
                                 <input type="text" id="linkphone" value="">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
-                                <span>联系人邮箱</span>
-                                <input type="text" id="linkmail" value="">
+                                <span>官方网站</span>
+                                <input type="text" id="identity" value="">
                                 <span></span>
                             </p>
                         </div>
                     </div>
-                    <!-- 上传部分 -->
-                    <div class="uploaddata">
-                        <span class="smallheaderscupture">头像</span>
-                        <span class="headerscupture">
-                            <span class="logo">
-                                <img src="{$res['avatar']}">
-                            </span>
-                        </span>
-
-                        <div class="addform" action="" name="" >
-                             <span>上传头像</span>
-                            <input type="file" id="photo" placeholder="上传头像"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
-                        </div>
-                    </div>
                     <footer class="footer" style="display: flex;justify-content: center;padding: 60px 0 30px 0;">
-                        <div class="submit" onclick="apply()">提交审核</div>
+                        <div class="submit" onclick="apply()">提交</div>
                     </footer>
                 </div>
 
@@ -444,40 +423,19 @@
     <script src="__PUBLIC__/js/jquery-3.3.1.min.js"></script>
     <script src="__PUBLIC__/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-    //上传头像
-    document.getElementById("photo").addEventListener("change",function(e){
-     var files =this.files;
-     var img = new Image();
-     var reader =new FileReader();
-     reader.readAsDataURL(files[0]);
-     reader.onload =function(e){
-       var dx =(e.total/600)/600;
-       if(dx>=2){
-         alert("文件大小大于140*100");
-         return;
-       }
-       $(".logo img").attr("src",this.result)
-       // img.src =this.result;
-        img.style.width ="60%";
-        img.style.height ="30%";
-       //  document.querySelector('.logo').appendChild(img);
-       // console.log(img);
-     }
-    })
-
         function apply() {
             var linkman = $('#linkman').val();
             var identity = $('#identity').val();
             var linkphone = $('#linkphone').val();
-            var linkmail = $('#linkmail').val();
+            // var linkmail = $('#linkmail').val();
             $.ajax({
                 url: '{:U("Home/Account/doApply")}',
                 type: 'POST',
                 data: {
                     'linkman': linkman,
                     'identity': identity,
-                    'linkphone': linkphone,
-                    'linkmail': linkmail
+                    'linkphone': linkphone
+                    // 'linkmail': linkmail
                 },
                 dataType: "json",
                 success: function (ret) {

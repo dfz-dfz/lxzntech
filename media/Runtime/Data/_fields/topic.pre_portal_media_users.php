@@ -1,0 +1,1 @@
+a:8:{i:0;s:3:"uid";i:1;s:4:"buid";i:2;s:8:"username";i:3;s:8:"password";i:4;s:4:"type";i:5;s:6:"status";s:3:"_pk";s:3:"uid";s:5:"_type";a:6:{s:3:"uid";s:7:"int(11)";s:4:"buid";s:7:"int(11)";s:8:"username";s:12:"varchar(255)";s:8:"password";s:12:"varchar(255)";s:4:"type";s:10:"tinyint(4)";s:6:"status";s:10:"tinyint(4)";}}

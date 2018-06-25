@@ -1,0 +1,1 @@
+a:8:{i:0;s:2:"id";i:1;s:3:"uid";i:2;s:6:"action";i:3;s:8:"dateline";i:4;s:3:"day";i:5;s:4:"auid";s:3:"_pk";s:2:"id";s:5:"_type";a:6:{s:2:"id";s:7:"int(11)";s:3:"uid";s:7:"int(11)";s:6:"action";s:10:"tinyint(2)";s:8:"dateline";s:7:"int(11)";s:3:"day";s:8:"int(255)";s:4:"auid";s:7:"int(11)";}}

@@ -171,6 +171,71 @@ class PublicController extends Controller {
 			exit ( json_encode ( $result ) );
 		}
 	}
+
+	/**
+	 * 图片上传
+	 *
+	 * @param string $thumb
+	 *        	是否自动生成缩略图
+	 * @param string $thumbWidth
+	 *        	宽 默认200
+	 * @param string $thumbHeight
+	 *        	高 默认200
+	 * @return $info 上传后的文件信息,如上传返回null,可以通过 public 的 geterror获取错误
+	 *
+	 *         例子:
+	 *         $uploadInfo=null;
+	 *         if (!empty($_FILES)) {
+	 *         $uploadFile =A('Admin/Public');
+	 *         $uploadInfo =$uploadFile->UploadImages(true);
+	 *
+	 *         }
+	 */
+	public function UploadPic($thumb = false, $thumbWidth = '200', $thumbHeight = '200') {
+		try {
+			$upload = new \Think\Upload (); // 实例化上传类
+			$upload->maxSize = 3145728; // 设置附件上传大小 3M
+			$upload->rootPath = '../bbs/data/attachment/';
+			$upload->autoSub = false;
+			$date = date('Ym',time());
+			$day = date('d',time());
+			// $this->writeLog("ttK");
+			$upload->exts = array (
+					'jpg',
+					'gif',
+					'png',
+					'jpeg'
+			);
+			// 设置附件上传目录 photo/帐户/控制器名/日期/图片, 缩图 加 _thumb.jpg
+			$path = "portal/{$date}/{$day}/";
+			$upload->savePath = $path;
+			if(!file_exists($upload->rootPath.$path) || !is_dir($upload->rootPath.$path)){
+	            mkdir($upload->rootPath.$path,0777,true);
+	        }
+			$info = $upload->upload();
+			if (!$info) { // 上传错误提示错误信息
+				$g_error = $upload->geterror ();                                // $this->error ("文件上传失败,Err:"+ $upload->geterror () );
+			} else { // 上传成功
+				if ($thumb) { // 生成缩略图
+					$image = new \Think\Image ();
+					foreach ( $info as $file ) {
+						$thumb_file = './Uploads/' . $file ['savepath'] . $file ['savename'];
+						$save_path = './Uploads/' . $file ['savepath'] . 'thumb_' . $file ['savename'];
+						$imgInfo=$image->open ( $thumb_file );
+						if(intval($imgInfo->width())>1920||intval($imgInfo->height())>1920){
+							$imgInfo->thumb ( 1920, 1920 )->save ( $thumb_file );
+						}
+						$imgInfo->thumb ( $thumbWidth, $thumbHeight )->save ( $save_path );
+
+					}
+				}
+			}
+			return $info;
+		} catch ( Exception $e ) {
+			$g_error = $e->getMessage ();
+			return null;
+		}
+	}
 }
 
 ?>

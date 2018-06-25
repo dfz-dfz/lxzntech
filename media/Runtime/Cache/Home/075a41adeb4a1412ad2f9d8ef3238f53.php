@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的内容</title>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/icon/iconfont.css">
-    <link rel="stylesheet" href="__PUBLIC__/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/laydate.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/public.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
+    <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/public.css" media="all">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
@@ -456,11 +456,11 @@
 
 <body>
       <!-- 头部 -->
-      {:W('Cate/header')}
+      <?php echo W('Cate/header');?>
       <div class="firstpage">
         <!-- 左侧导航栏 -->
         <div class="container">
-            {:W('Cate/nav')}
+            <?php echo W('Cate/nav');?>
             <!-- 右侧版心部分 -->
              <div class="content">
             <!-- 我的内容部分 -->
@@ -498,14 +498,14 @@
                 <!-- 页面走丢 -->
                 <div class="lose">
                     <div class="lose_img">
-                        <img src="__PUBLIC__/images/mycontent/null.png">
+                        <img src="/project/media/Public/images/mycontent/null.png">
                     </div>
                     <p>暂时没有相关文章</p>
                 </div>
              <!-- 发布状态部分 -->
                 <div class="content_main">
                     <div class="content_pic">
-                        <img src="__PUBLIC__/images/index/banner_one.png">
+                        <img src="/project/media/Public/images/index/banner_one.png">
                         <div class="content_title">
                             <p> 如果腾讯阿里消失了，这个世界将会变什么样？</p>
                             <div class="published">
@@ -547,7 +547,7 @@
                         </div>
                     </div>
                     <div class="content_pic">
-                        <img src="__PUBLIC__/images/index/banner_one.png">
+                        <img src="/project/media/Public/images/index/banner_one.png">
                         <div class="content_title">
                             <p> 如果腾讯阿里消失了，这个世界将会变什么样？</p>
                             <div class="published">
@@ -571,7 +571,7 @@
                         </div>
                     </div>
                     <div class="content_pic">
-                        <img src="__PUBLIC__/images/index/banner_one.png">
+                        <img src="/project/media/Public/images/index/banner_one.png">
                         <div class="content_title">
                             <p> 如果腾讯阿里消失了，这个世界将会变什么样？</p>
                             <div class="published">
@@ -618,9 +618,9 @@
         </div>
 
     </div>
-    <script src="__PUBLIC__/js/jquery-3.3.1.min.js"></script>
-    <script src="__PUBLIC__/js/layui.js"></script>
-    <script src="__PUBLIC__/js/laydate.js"></script>
+    <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
+    <script src="/project/media/Public/js/layui.js"></script>
+    <script src="/project/media/Public/js/laydate.js"></script>
     <script type="text/javascript">
     $(function(){
     	articleData(-1,1);
@@ -641,7 +641,7 @@
             alert('已经到最后一页');return;
         }
 		$.ajax({
-			url: '{:U("Home/Main/articleData")}',
+			url: '<?php echo U("Home/Main/articleData");?>',
             type: 'POST',
             data: {'type': type,'num':num},
             success:function(ret){
@@ -753,7 +753,7 @@
 //删除数据
 	function del(id,type){
 		$.ajax({
-			url: '{:U("Home/main/delArticle")}',
+			url: '<?php echo U("Home/main/delArticle");?>',
             type: 'POST',
             data: {'id':id,'type': type},
             success:function(ret){
@@ -775,44 +775,44 @@
   }
 
 	function edit(id,type){
-		window.location.href="{:U('Home/main/edit/id/"+id+"/type/"+type+"')}";
+		window.location.href="<?php echo U('Home/main/edit/id/"+id+"/type/"+type+"');?>";
 	}
 
     //首页
     $('.status').click(function() {
-        window.location.href = "{:U('Home/Admin/index')}";
+        window.location.href = "<?php echo U('Home/Admin/index');?>";
     });
     //互动消息
     $('#message').click(function() {
-        window.location.href = "{:U('Home/Messages/fans')}";
+        window.location.href = "<?php echo U('Home/Messages/fans');?>";
     });
     //粉丝量统计
     $('#fansnumcount').click(function() {
-        window.location.href = "{:U('Home/fans/index')}";
+        window.location.href = "<?php echo U('Home/fans/index');?>";
     });
     //图文统计
     $('#totalsingle').click(function() {
-        window.location.href = "{:U('Home/Count/single')}";
+        window.location.href = "<?php echo U('Home/Count/single');?>";
     });
     //我的素材
     $('#attachment').click(function() {
-        window.location.href = "{:U('Home/Attachment/index')}";
+        window.location.href = "<?php echo U('Home/Attachment/index');?>";
     });
     //写文章
     $('#edit').click(function() {
-        window.location.href = "{:U('Home/Main/edit')}";
+        window.location.href = "<?php echo U('Home/Main/edit');?>";
     });
     //我的内容
     $('#content').click(function() {
-        window.location.href = "{:U('Home/Main/main')}";
+        window.location.href = "<?php echo U('Home/Main/main');?>";
     });
     //账号设置
     $('#accountset').click(function() {
-        window.location.href = "{:U('Home/Account/index')}";
+        window.location.href = "<?php echo U('Home/Account/index');?>";
     });
     //评论管理
     $('#comment').click(function() {
-       window.location.href = "{:U('Home/comment/newmsg')}";
+       window.location.href = "<?php echo U('Home/comment/newmsg');?>";
     });
     </script>
 </body>

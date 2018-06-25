@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>写文章</title>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/icon/iconfont.css">
-    <link rel="stylesheet" href="__PUBLIC__/css/trumbowyg.css">
-    <link rel="stylesheet" href="__PUBLIC__/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/laydate.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/public.css">
+    <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
+    <link rel="stylesheet" href="/project/media/Public/css/trumbowyg.css">
+    <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/public.css">
 </head>
 <style>
     body,
@@ -391,35 +391,31 @@
 
 <body>
     <!-- 头部 -->
-        {:W('Cate/header')}
+        <?php echo W('Cate/header');?>
         <!-- 左侧导航栏 -->
         <div class="firstpage">
         <div class="container">
-            {:W('Cate/nav')}
+            <?php echo W('Cate/nav');?>
    <div class="content">
     <form action="" id="form" method="post" enctype="multipart/form-data">
-            <notempty name="data">
-                <if condition="$type eq 'draft'">
-                    <input type="hidden" name="id" value="{$data['id']}">
-                <else/>
-                    <input type="hidden" name="aid" value="{$data['aid']}">
-                </if>
-                <input type="hidden" name="type" value="{$type}">
-            </notempty>
+            <?php if(!empty($data)): if($type == 'draft'): ?><input type="hidden" name="id" value="<?php echo ($data['id']); ?>">
+                <?php else: ?>
+                    <input type="hidden" name="aid" value="<?php echo ($data['aid']); ?>"><?php endif; ?>
+                <input type="hidden" name="type" value="<?php echo ($type); ?>"><?php endif; ?>
             <!-- 写文章部分 -->
             <div class="content_all"><span>写文章</span></div>
             <div class="titleinput">
-                <input type="text" id="title" name="title" value="{$data['title']}" placeholder="请输入标题(5~30字)">
+                <input type="text" id="title" name="title" value="<?php echo ($data['title']); ?>" placeholder="请输入标题(5~30字)">
             </div>
             <div class="editall">
                 <div id="odiv">
-                    <img src="__PUBLIC__/pic/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" />
-                    <img src="__PUBLIC__/pic/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)" />
-                    <img src="__PUBLIC__/pic/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" />
-                    <img src="__PUBLIC__/pic/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
+                    <img src="/project/media/Public/pic/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" />
+                    <img src="/project/media/Public/pic/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)" />
+                    <img src="/project/media/Public/pic/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" />
+                    <img src="/project/media/Public/pic/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
                 </div>
                 <div class="editor" id="customized-buttonpane" onmousedown="show_element(event)">
-                    {$data['content']}
+                    <?php echo ($data['content']); ?>
                 </div>
             </div>
             <!-- 封面 -->
@@ -429,9 +425,7 @@
                         <div class="choose_img">
                             <span style="font-size: 16px;color: #232323;">频道栏目</span>
                             <select id="catid" name="catid">
-                                <foreach name="catname" item="v">
-                                    <option value="{$v['catid']}">{$v['catname']}</option>
-                                </foreach>
+                                <?php if(is_array($catname)): foreach($catname as $key=>$v): ?><option value="<?php echo ($v['catid']); ?>"><?php echo ($v['catname']); ?></option><?php endforeach; endif; ?>
                             </select>
 
                         </div>
@@ -449,7 +443,7 @@
                                 <div class="v"></div>
                             </label>
                             <label class="logo" for="photo">
-                                <img src="{$data['pic']}" alt="">
+                                <img src="<?php echo ($data['pic']); ?>" alt="">
                             </label>
                             <input type="file" id="photo" name="photo" class="addphoto" style="display: none;" accept="image/png, image/jpeg, image/gif, image/jpg"/>
                         </div>
@@ -479,10 +473,10 @@
     </footer>
 
 
-    <script src="__PUBLIC__/js/jquery-3.3.1.min.js"></script>
-    <script src="__PUBLIC__/js/jquery.min.js"></script>
-    <script src="__PUBLIC__/js/trumbowyg.js"></script>
-    <script src="__PUBLIC__/js/trumbowyg.base64.js"></script>   
+    <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
+    <script src="/project/media/Public/js/jquery.min.js"></script>
+    <script src="/project/media/Public/js/trumbowyg.js"></script>
+    <script src="/project/media/Public/js/trumbowyg.base64.js"></script>   
     <script type="text/javascript">
         //上传头像
         document.getElementById("photo").addEventListener("change",function(e){
@@ -510,7 +504,7 @@
 
         //发布
         function sentData(){
-            // $('#form').attr('action','{:U("Home/main/doEdit")}');
+            // $('#form').attr('action','<?php echo U("Home/main/doEdit");?>');
             // $('#form').submit();
             var form = $('#form');
             var formdata = new FormData(form[0]);
@@ -518,7 +512,7 @@
             // var catid = $('#catid').val();
             // var content = $('#customized-buttonpane').html();
             $.ajax({
-                url: '{:U("Home/main/doEdit")}',
+                url: '<?php echo U("Home/main/doEdit");?>',
                 async : false,
                 cache : false,
                 contentType : false,
@@ -536,7 +530,7 @@
             var form = $('#form');
             var formdata = new FormData(form[0]);
             $.ajax({
-                url: '{:U("Home/main/saveDraft")}',
+                url: '<?php echo U("Home/main/saveDraft");?>',
                 async : false,
                 cache : false,
                 contentType : false,
@@ -565,39 +559,39 @@
 
         //首页
         $('.status').click(function() {
-            window.location.href = "{:U('Home/Admin/index')}";
+            window.location.href = "<?php echo U('Home/Admin/index');?>";
         });
         //互动消息
         $('#message').click(function() {
-            window.location.href = "{:U('Home/Messages/fans')}";
+            window.location.href = "<?php echo U('Home/Messages/fans');?>";
         });
         //粉丝量统计
         $('#fansnumcount').click(function() {
-            window.location.href = "{:U('Home/fans/index')}";
+            window.location.href = "<?php echo U('Home/fans/index');?>";
         });
         //图文统计
         $('#totalsingle').click(function() {
-            window.location.href = "{:U('Home/Count/single')}";
+            window.location.href = "<?php echo U('Home/Count/single');?>";
         });
         //我的素材
         $('#attachment').click(function() {
-            window.location.href = "{:U('Home/Attachment/index')}";
+            window.location.href = "<?php echo U('Home/Attachment/index');?>";
         });
         //写文章
         $('#edit').click(function() {
-            window.location.href = "{:U('Home/Main/edit')}";
+            window.location.href = "<?php echo U('Home/Main/edit');?>";
         });
         //我的内容
         $('#content').click(function() {
-            window.location.href = "{:U('Home/Main/main')}";
+            window.location.href = "<?php echo U('Home/Main/main');?>";
         });
         //账号设置
         $('#accountset').click(function() {
-            window.location.href = "{:U('Home/Account/index')}";
+            window.location.href = "<?php echo U('Home/Account/index');?>";
         });
         //评论管理
         $('#comment').click(function() {
-           window.location.href = "{:U('Home/comment/newmsg')}"; 
+           window.location.href = "<?php echo U('Home/comment/newmsg');?>"; 
         });
     </script>
 </body>

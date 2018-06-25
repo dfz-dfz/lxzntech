@@ -12,7 +12,9 @@ class MainController extends CommonController
 		$type = $type>=0?$type:-1;
 		$num = I('num')?I('num'):1;
 		$row = ($num-1)*10;
+		// dump($num);exit;
 		$article = D('media_article');
+		$allArticle = D('media_article_draft');
 		$draftbox = D('portal_article_draftbox');
 		$uid = $_SESSION['userdata']['buid'];
 		$where['uid'] = ['eq',$uid];
@@ -20,17 +22,24 @@ class MainController extends CommonController
 			$where['status'] = ['eq',$type];
 		}
 
-		if($type == 4 || $type == -1){
-			$res = $draftbox -> where("uid = $uid") -> limit($row,10) -> order('dateline desc') -> select();
-			if($type == -1){
-				$res1 = $article -> where($where) -> limit($row,10) -> order('dateline desc') -> select();
-				foreach ($res1 as $key => $val) {
-					$res[] = $val;
+		if($type == -1){
+			$total = $allArticle -> where($where) -> count();
+			$articleRes = $allArticle -> where($where) -> limit($row,10) -> order('dateline desc') -> select();
+			foreach($articleRes as $kr => $vr){
+				if($vr['type'] == 1){
+					$res[] = $article -> where("aid = {$vr['id']}") -> find();
+				}else{
+					$res[] = $draftbox -> where("id = {$vr['id']}") -> find();
 				}
 			}
+		}elseif($type == 4){
+			$total = $draftbox -> where("uid = $uid") -> count();
+			$res = $draftbox -> where("uid = $uid") -> limit($row,10) -> order('dateline desc') -> select();
 		}else{
+			$total = $article -> where($where) -> count();
 			$res = $article -> where($where) -> limit($row,10) -> order('dateline desc') -> select();
 		}
+		$page = ceil($total/10);
 		// $totalRow = $this -> where($map) -> count();
 
   //       // 每页显示条数
@@ -42,7 +51,7 @@ class MainController extends CommonController
 		foreach ($res as $k => $v) {
 			$data['id'] = $v['id']?$v['id']:$v['aid']; 
 			$data['title'] = $v['title']; 
-			$data['pic'] = 'http://www.lxzntech.com/data/attachment/'.$v['pic']; 
+			$data['pic'] = 'http://www.lxzntech.com/bbs/data/attachment/'.$v['pic']; 
 			$data['type'] = $v['id']?'draft':'article';
 			$sta = $v['status'] != null?$v['status']:3;
 			$data['status'] = $v['status'];
@@ -57,110 +66,46 @@ class MainController extends CommonController
 		if($result){
 			$return['status'] = 1;
 			$return['data'] = $result;
+			$return['page'] = $page;
 			$return['msg'] = '查询成功';
 		}else{
 			$return['status'] = 0;
 			$return['data'] = [];
+			$return['page'] = 1;
 			$return['msg'] = '没有数据';
 		}
 		$this -> ajaxReturn($return);
-	}
-
-	// 发布文章
-	public function addActicle(){
-		$member = D('common_member');
-		$articleTitle = D('portal_article_title');
-		$articleContent = D('portal_article_content');
-		$articleCount = D('portal_article_count');
-		$category = D('portal_category');
-		$title = I('post.title');
-		$content = I('post.content');
-		$catid = I('post.catid');
-		$summary = I('post.summary');
-		$uid = $_SESSION['userdata']['buid'];
-		$minfo = $member -> where("uid = $uid") -> find();
-		$tres = checkWords($title);
-		$data['status'] = 0;
-		if($tres['status'] == 1){
-			$title = $tres['content'];
-		}elseif($tres['status'] == 2){
-			$data['status'] = 1;
-		}elseif ($tres['status'] == 3) {
-			$res['status'] = 0;
-			$res['data'] = 0;
-			$res['msg'] = '提交内容含有不良信息，提交失败';
-			$this -> ajaxReturn($res);
-		}
-		$conres = checkWords($content);
-		if($conres['status'] == 1){
-			$content = $conres['content'];
-		}elseif($conres['status'] == 2){
-			$data['status'] = 1;
-		}elseif ($conres['status'] == 3) {
-			$res['status'] = 0;
-			$res['data'] = 0;
-			$res['msg'] = '提交内容含有不良信息，提交失败';
-			$this -> ajaxReturn($res);
-		}
-		$sumres = checkWords($summary);
-		if($sumres['status'] == 1){
-			$summary = $sumres['content'];
-		}elseif($sumres['status'] == 2){
-			$data['status'] = 1;
-		}elseif ($sumres['status'] == 3) {
-			$res['status'] = 0;
-			$res['data'] = 0;
-			$res['msg'] = '提交内容含有不良信息，提交失败';
-			$this -> ajaxReturn($res);
-		}
-
-		$data['catid'] = $catid;
-		$data['uid'] = $uid;
-		$data['username'] = $minfo['username'];
-		$data['title'] = $title;
-		$data['highlight'] = "|||";
-		$data['summary'] = $summary;
-		$data['contents'] = 1;
-		$data['allowcomment'] = 1;
-		$data['dateline'] = time();
-		$aid = $articleTitle -> add($data);
-		if($aid){
-			$data['aid'] = $aid;
-			$data['content'] = $content;
-			$data['pageorder'] = 1;
-			$articleContent -> add($data);
-			$articleCount -> add($data);
-			if($data['status'] == 0){
-				$category -> where("aid = $aid") -> setInc('articles');
-			}
-			$return['status'] = 1;
-			$return['data'] = '';
-			$return['msg'] = '提交成功';
-		}else{
-			$return['status'] = 0;
-			$return['data'] = '';
-			$return['msg'] = '提交失败';
-		}
-		$this -> ajaxReturn($return);
-
 	}
 
 	//保存草稿箱
 	public function saveDraft(){
 		$draft = D('portal_article_draftbox');
 		$member = D('common_member');
+		$id = I('id');
 		$title = I('post.title');
-		$content = I('post.content');
+		$content = I('post.customized-buttonpane');
 		$catid = I('post.catid');
 		$summary = I('post.summary');
 		$uid = $_SESSION['userdata']['buid'];
+		$public = A('public');
+		$img = $public -> UploadPic();
+		foreach($img as $kim => $vim){
+			$pic = $vim['savepath'].$vim['savename'];
+		}
+		if($pic){
+			$data['pic'] = $pic;
+		}
 		$data['catid'] = $catid;
 		$data['uid'] = $uid;
 		$data['title'] = $title;
 		$data['content'] = $content;
 		$data['summary'] = $summary;
 		$data['dateline'] = time();
-		$res = $draft -> add($data);
+		if($id){
+			$res = $draft -> where("id = $id") -> save($data);
+		}else{
+			$res = $draft -> add($data);
+		}
 		if($res){
 			$return['status'] = 1;
 			$return['data'] = '';
@@ -197,18 +142,19 @@ class MainController extends CommonController
 
 	// 保存编辑
 	public function doEdit(){
-		dump($_FILES);
-		dump($_POST);exit;
+		// dump($_POST);exit();
 		$member = D('common_member');
 		$articleTitle = D('portal_article_title');
 		$articleContent = D('portal_article_content');
 		$articleCount = D('portal_article_count');
 		$category = D('portal_category');
 		$aid = I('post.aid');
+		$type = I('post.type');
 		$title = I('post.title');
-		$content = I('content');
+		$content = I('customized-buttonpane');
 		$catid = I('post.catid');
 		$summary = I('post.summary');
+		$fm = I('post.fm');//1为默认封面；2为单张封面
 		$uid = $_SESSION['userdata']['buid'];
 		$content = htmlspecialchars_decode($content);
 		$minfo = $member -> where("uid = $uid") -> find();
@@ -246,7 +192,7 @@ class MainController extends CommonController
 			$res['msg'] = '提交内容含有不良信息，提交失败';
 			$this -> ajaxReturn($res);
 		}
-
+		
 		preg_match_all('/<img src="(.*?)" (.*?)>/', $content, $images);
 		foreach ($images[1] as $ki => $vi) {
 		    $date = date('Ym',time());
@@ -277,6 +223,12 @@ class MainController extends CommonController
 		    // $content = preg_replace("/({$rep})/",$url.$type[1],$content);
 		}
 		$content = preg_replace('/@+.*? alt=""/','"',$content);
+		$public = A('public');
+		$img = $public -> UploadPic();
+		foreach($img as $kim => $vim){
+			$pic = $vim['savepath'].$vim['savename'];
+		}
+		dump($aid);exit;
 		if($aid){
 			$data['catid'] = $catid;
 			$data['uid'] = $uid;
@@ -287,6 +239,9 @@ class MainController extends CommonController
 			$data['contents'] = 1;
 			$data['allowcomment'] = 1;
 			$data['dateline'] = time();
+			if($pic){
+				$data['pic'] = $pic;
+			}
 			$aid = $articleTitle -> where("aid = $aid") -> save($data);
 			if($aid){
 				$data['content'] = $content;
@@ -294,11 +249,11 @@ class MainController extends CommonController
 				$articleContent -> where("aid = $aid") -> save($data);
 				$return['status'] = 1;
 				$return['data'] = '';
-				$return['msg'] = '提交成功';
+				$return['msg'] = '发布成功';
 			}else{
 				$return['status'] = 0;
 				$return['data'] = '';
-				$return['msg'] = '提交失败';
+				$return['msg'] = '发布失败';
 			}
 			$this -> ajaxReturn($return);
 		}else{
@@ -311,6 +266,9 @@ class MainController extends CommonController
 			$data['contents'] = 1;
 			$data['allowcomment'] = 1;
 			$data['dateline'] = time();
+			if($pic){
+				$data['pic'] = $pic;
+			}
 			$aid = $articleTitle -> add($data);
 			if($aid){
 				$data['aid'] = $aid;
@@ -323,11 +281,11 @@ class MainController extends CommonController
 				}
 				$return['status'] = 1;
 				$return['data'] = '';
-				$return['msg'] = '提交成功';
+				$return['msg'] = '发布成功';
 			}else{
 				$return['status'] = 0;
 				$return['data'] = '';
-				$return['msg'] = '提交失败';
+				$return['msg'] = '发布失败';
 			}
 			$this -> ajaxReturn($return);
 		}

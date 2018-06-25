@@ -1,0 +1,36 @@
+[ 2018-06-25T09:34:18+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890458' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890458' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:34:20+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890460' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890460' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:34:21+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890461' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890461' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:34:22+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890462' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890462' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:34:23+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890462' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890462' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:34:43+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890483' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890483' WHERE ( aid = 670 )
+

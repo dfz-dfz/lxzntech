@@ -280,11 +280,11 @@
         display: inline-block;
         width: 30%;
     }
-  .truename input{
-    width: 200px;
-    height: 25px;
-    font-size: 14px;
-  }
+    .truename input{
+      width: 200px;
+      height: 25px;
+      font-size: 14px;
+    }
     /* 上传部分 */
     /* 上传部分 */
 
@@ -367,12 +367,12 @@
             <div class="content">
                 <!-- 申请修改部分 -->
                 <div class="content_all">
-                    <a href="javascript:;">申请修改</a>
+                    <a href="javascript:;">修改信息</a>
                     <span></span>
                 </div>
                 <p class="replaceall">
                     <i class="iconfont icon">&#xe60e;</i>
-                    <span style="margin-left: 15px;"> 提交相关企业证明资料之后，由后台人员审核通过后修改</span>
+                    <span style="margin-left: 15px;"> 账号信息7天内只能修改一次</span>
                 </p>
                 <!-- 公告部分 -->
                 <div class="main">
@@ -380,34 +380,27 @@
                         <div class="allinformation_number">
                             <i></i>
                             <p>
-                                <strong>运营人员身份信息</strong>
+                                <strong>账号设置</strong>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
-                                <span>联系人真实姓名</span>
+                                <span>账号名称</span>
                                 <input type="text" id="linkman" value="">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
-                                <span>身份证号</span>
-                                <input type="text" id="identity" value="">
-                                <span></span>
-                            </p>
-                        </div>
-                        <div class="truename">
-                            <p>
-                                <span>联系人电话</span>
+                                <span>账号简介</span>
                                 <input type="text" id="linkphone" value="">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
-                                <span>联系人邮箱</span>
-                                <input type="text" id="linkmail" value="">
+                                <span>领域</span>
+                                <input type="text" id="identity" value="">
                                 <span></span>
                             </p>
                         </div>
@@ -427,7 +420,7 @@
                         </div>
                     </div>
                     <footer class="footer" style="display: flex;justify-content: center;padding: 60px 0 30px 0;">
-                        <div class="submit" onclick="apply()">提交审核</div>
+                        <div class="submit" onclick="apply()">提交</div>
                     </footer>
                 </div>
 
@@ -469,15 +462,15 @@
             var linkman = $('#linkman').val();
             var identity = $('#identity').val();
             var linkphone = $('#linkphone').val();
-            var linkmail = $('#linkmail').val();
+            // var linkmail = $('#linkmail').val();
             $.ajax({
                 url: '{:U("Home/Account/doApply")}',
                 type: 'POST',
                 data: {
                     'linkman': linkman,
                     'identity': identity,
-                    'linkphone': linkphone,
-                    'linkmail': linkmail
+                    'linkphone': linkphone
+                    // 'linkmail': linkmail
                 },
                 dataType: "json",
                 success: function (ret) {

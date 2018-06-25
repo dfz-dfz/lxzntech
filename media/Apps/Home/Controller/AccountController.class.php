@@ -79,5 +79,13 @@ class AccountController extends CommonController
 			$this -> ajaxReturn(0);
 		}
 	}
+
+	public function basicapply(){
+		$this -> display();
+	}
+
+	public function company(){
+		$this -> display();
+	}
 	
 }

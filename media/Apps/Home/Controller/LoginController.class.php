@@ -56,7 +56,6 @@ class LoginController extends Controller
         $res['territory'] = D('portal_media_territory') -> where("id = {$res['territory']}") -> getField('territory');
         $result = array_merge($res,$data);
         $_SESSION["userdata"] = $result;
-
         $return['status'] = '1';
         $return['data'] = '';
         $return['msg'] = '登录成功';
