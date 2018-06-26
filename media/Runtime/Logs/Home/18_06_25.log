@@ -34,3 +34,234 @@ ERR: 1172:Result consisted of more than one row
 ERR: 1172:Result consisted of more than one row
  [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890483' WHERE ( aid = 670 )
 
+[ 2018-06-25T09:38:06+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890686' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890686' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:38:22+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890702' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890702' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:39:19+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890759' WHERE ( aid = 670 )
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890759' WHERE ( aid = 670 )
+
+[ 2018-06-25T09:43:13+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890993' WHERE `aid` = 670
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529890993' WHERE `aid` = 670
+
+[ 2018-06-25T09:46:01+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529891161' WHERE `aid` = 670
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529891161' WHERE `aid` = 670
+
+[ 2018-06-25T09:46:49+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`dateline`='1529891209' WHERE `aid` = 670
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`dateline`='1529891209' WHERE `aid` = 670
+
+[ 2018-06-25T09:51:02+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529891462' WHERE `aid` = '670'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529891462' WHERE `aid` = '670'
+
+[ 2018-06-25T09:51:16+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529891476' WHERE `aid` = '670'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='撤撤撤111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529891476' WHERE `aid` = '670'
+
+[ 2018-06-25T10:03:31+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test12',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529892211' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test12',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529892211' WHERE `aid` = '672'
+
+[ 2018-06-25T10:05:06+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529892306' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529892306' WHERE `aid` = '672'
+
+[ 2018-06-25T10:05:13+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529892313' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111111',`highlight`='|||',`summary`='',`contents`='1',`allowcomment`='1',`dateline`='1529892313' WHERE `aid` = '672'
+
+[ 2018-06-25T10:05:29+08:00 ] 192.168.0.136 /project/media/home/main/main.html
+ERR: syntax error, unexpected '$articleTitle' (T_VARIABLE)
+
+[ 2018-06-25T10:05:29+08:00 ] 192.168.0.136 /project/media/home/main/index.js.map
+ERR: syntax error, unexpected '$articleTitle' (T_VARIABLE)
+
+[ 2018-06-25T10:05:51+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test12411',`dateline`='1529892351' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test12411',`dateline`='1529892351' WHERE `aid` = '672'
+
+[ 2018-06-25T10:06:34+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892394' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892394' WHERE `aid` = '672'
+
+[ 2018-06-25T10:06:38+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892398' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892398' WHERE `aid` = '672'
+
+[ 2018-06-25T10:08:11+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892491' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892491' WHERE `aid` = '672'
+
+[ 2018-06-25T10:10:13+08:00 ] 192.168.0.136 /project/media/home/main/doedit.html
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892613' WHERE `aid` = '672'
+ERR: 1172:Result consisted of more than one row
+ [ SQL语句 ] : UPDATE `pre_portal_article_title` SET `status`='0',`catid`='38',`uid`='1295',`username`='mob_a745eead',`title`='test124111',`dateline`='1529892613' WHERE `aid` = '672'
+
+[ 2018-06-25T13:59:22+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T13:59:26+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T17:35:17+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T17:35:20+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T17:36:50+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T17:50:12+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T17:50:14+08:00 ] 192.168.0.122 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T18:03:41+08:00 ] 192.168.0.136 /project/media/home/attachment/index.html
+ERR: Too few arguments to function Think\Model::limit(), 0 passed in D:\xampp\htdocs\project\media\Apps\Home\Controller\AttachmentController.class.php on line 13 and at least 1 expected
+
+[ 2018-06-25T18:08:33+08:00 ] 192.168.0.136 /project/media/home/attachment/index.html
+ERR: Think\Controller:where方法不存在！
+
+[ 2018-06-25T18:53:29+08:00 ] 192.168.0.136 /project/media/home/attachment/index/p/1.html
+ERR: Undefined class constant 'totalPages'
+
+[ 2018-06-25T19:06:13+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: Cannot access private property Think\Page::$nowPage
+
+[ 2018-06-25T19:08:14+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2018-06-25T19:08:25+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2018-06-25T19:08:32+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:08:38+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:08:44+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:09:03+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:09:09+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:09:15+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:09:22+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:09:57+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '确定删除？' (T_STRING), expecting ',' or ')'
+
+[ 2018-06-25T19:10:10+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2018-06-25T19:10:30+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2018-06-25T19:11:00+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2018-06-25T19:11:09+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2018-06-25T19:11:30+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:11:31+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:11:31+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:11:32+08:00 ] 192.168.0.136 //project/media/home/attachment/index/p/2.html
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:11:36+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:12:19+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:12:46+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:12:47+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:12:47+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:12:47+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:12:47+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:14:18+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:14:35+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:14:53+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:14:57+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:14:58+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:14:58+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+
+[ 2018-06-25T19:16:03+08:00 ] 192.168.0.136 //project/media/home/attachment/index
+ERR: syntax error, unexpected ';', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+

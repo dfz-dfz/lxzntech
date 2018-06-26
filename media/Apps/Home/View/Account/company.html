@@ -386,21 +386,21 @@
                         <div class="truename">
                             <p>
                                 <span>企业机构信息</span>
-                                <input type="text" id="linkman" value="">
+                                <input type="text" id="company" value="{$res['company']}">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
                                 <span>企业地址</span>
-                                <input type="text" id="linkphone" value="">
+                                <input type="text" id="address" value="{$res['address']}">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
                                 <span>官方网站</span>
-                                <input type="text" id="identity" value="">
+                                <input type="text" id="website" value="{$res['website']}">
                                 <span></span>
                             </p>
                         </div>
@@ -424,22 +424,24 @@
     <script src="__PUBLIC__/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         function apply() {
-            var linkman = $('#linkman').val();
-            var identity = $('#identity').val();
-            var linkphone = $('#linkphone').val();
-            // var linkmail = $('#linkmail').val();
+            var company = $('#company').val();
+            var address = $('#address').val();
+            var website = $('#website').val();
             $.ajax({
-                url: '{:U("Home/Account/doApply")}',
+                url: '{:U("Home/Account/editcompany")}',
                 type: 'POST',
                 data: {
-                    'linkman': linkman,
-                    'identity': identity,
-                    'linkphone': linkphone
-                    // 'linkmail': linkmail
+                    'company': company,
+                    'address': address,
+                    'website': website
                 },
-                dataType: "json",
                 success: function (ret) {
-                    alert(ret.msg);
+                    if(ret == 1){
+                        alert('修改成功');
+                        window.location.href='{:U("Home/Account/index")}';
+                    }else{
+                        alert('修改失败');
+                    }
                 }
             })
         }

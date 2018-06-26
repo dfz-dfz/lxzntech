@@ -487,7 +487,7 @@
                         <div class="modify_img">
                             <img src="<?php echo ($v['url']); ?>">
                         </div>
-                        <p><?php echo ($v['savename']); ?></p>
+                        <p><?php echo ($v['filename']); ?></p>
                         <div class="modifymenu">
                             <div>
                                 <a href="javascript:;">
@@ -496,7 +496,7 @@
                             </div>
                             <span class="span"></span>
                             <div>
-                                <a href="javascript:;" onclick="delete_confirm()">
+                                <a href="javascript:;" onclick="delete_confirm(<?php echo ($v['id']); ?>)">
                                     <i class="iconfont icon-replace">&#xe61b;</i>
                                 </a>
                             </div>
@@ -504,34 +504,58 @@
                     </div><?php endforeach; endif; ?>
             </div>
             <!-- 跳转页面 -->
-            <div class="pageall">
-                <span>1&nbsp;/&nbsp;5</span>
-                <div class="choose_page">
-                    <a href="javascript:;">
-                        <i></i>
-                    </a>
-                </div>
+            <?php if($totalPage > 0): ?><div class="pageall">
+                <?php if($nowpage != 1): ?><div class="choose_page" style="left: 56%;right: 0;">
+                        <a href='<?php echo U("home/attachment/index/p/$before");?>'>
+                            <i style="transform: rotate(-135deg);margin-left:10px;"></i>
+                        </a>
+                    </div><?php endif; ?>
+                <span><?php echo ($nowpage); ?>&nbsp;/&nbsp;<?php echo ($totalPage); ?></span>
+                <?php if($nowpage != $totalPage): ?><div class="choose_page">
+                        <a href='<?php echo U("home/attachment/index/p/$next");?>'>
+                            <i></i>
+                        </a>
+                    </div><?php endif; ?>
                 <div class="pageall_number">
                     <span>到第 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <input type="text" class="search-page" maxlength="4"> 页
+                        <input type="text" id="gopage" class="search-page" maxlength="4"> 页
                     </span>
                 </div>
                 <div class="allright">
-                    <a href="javascript:;">确定</a>
+                    <a href="javascript:;" onclick="gopage()">确定</a>
                 </div>
-            </div>
+            </div><?php endif; ?>
         </div>
     </div>
 </div>
     <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
         //删除提示框
-        function delete_confirm() {
+        function delete_confirm(id) {
             if(window.confirm('确定删除？')){
-                return true;
+                $.ajax({
+                url: '<?php echo U("Home/Attachment/delImage");?>',
+                type: 'POST',
+                data: {
+                    'id':id
+                },
+                success: function (ret) {
+                    if(ret.status == 1){
+                        alert(ret.msg);
+                        window.location.reload();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            })
             }else{
                 return false;
             }
+        }
+
+        function gopage(){
+            var go = $('#gopage').val();
+            window.location.href='<?php echo U("home/attachment/index/p/'+go+'");?>';
         }
 
         //首页

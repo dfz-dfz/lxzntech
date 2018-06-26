@@ -228,25 +228,25 @@ class MainController extends CommonController
 		foreach($img as $kim => $vim){
 			$pic = $vim['savepath'].$vim['savename'];
 		}
-		dump($aid);exit;
 		if($aid){
+			// $data['aid'] = $aid;
 			$data['catid'] = $catid;
 			$data['uid'] = $uid;
 			$data['username'] = $minfo['username'];
 			$data['title'] = $title;
-			$data['highlight'] = "|||";
-			$data['summary'] = $summary;
-			$data['contents'] = 1;
-			$data['allowcomment'] = 1;
+			// $data['summary'] = $summary;
+			// $data['contents'] = 1;
+			// $data['allowcomment'] = 1;
 			$data['dateline'] = time();
 			if($pic){
 				$data['pic'] = $pic;
 			}
-			$aid = $articleTitle -> where("aid = $aid") -> save($data);
-			if($aid){
-				$data['content'] = $content;
-				$data['pageorder'] = 1;
-				$articleContent -> where("aid = $aid") -> save($data);
+			$maps['aid'] = ['eq',$aid];
+			$articleTitle -> where($maps) -> save($data);
+			$data['content'] = $content;
+			$data['pageorder'] = 1;
+			$ares = $articleContent -> where("aid = $aid") -> save($data);
+			if($ares){
 				$return['status'] = 1;
 				$return['data'] = '';
 				$return['msg'] = '发布成功';

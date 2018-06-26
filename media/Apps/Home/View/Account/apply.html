@@ -375,6 +375,7 @@
                     <span style="margin-left: 15px;"> 提交相关企业证明资料之后，由后台人员审核通过后修改</span>
                 </p>
                 <!-- 公告部分 -->
+                <form action="" id="form" method="post" enctype="multipart/form-data">
                 <div class="main">
                     <div class="allinformation">
                         <div class="allinformation_number">
@@ -386,35 +387,35 @@
                         <div class="truename">
                             <p>
                                 <span>联系人真实姓名</span>
-                                <input type="text" id="linkman" value="">
+                                <input type="text" name="linkman" value="{$res['linkman']}">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
                                 <span>身份证号</span>
-                                <input type="text" id="identity" value="">
+                                <input type="text" name="identity" value="{$res['identity']}">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
                                 <span>联系人电话</span>
-                                <input type="text" id="linkphone" value="">
+                                <input type="text" name="linkphone" value="{$res['linkphone']}">
                                 <span></span>
                             </p>
                         </div>
                         <div class="truename">
                             <p>
                                 <span>联系人邮箱</span>
-                                <input type="text" id="linkmail" value="">
+                                <input type="text" name="linkmail" value="{$res['linkmail']}">
                                 <span></span>
                             </p>
                         </div>
                     </div>
                     <!-- 上传部分 -->
                     <div class="uploaddata">
-                        <span class="smallheaderscupture">头像</span>
+                        <span class="smallheaderscupture">企业证明资料</span>
                         <span class="headerscupture">
                             <span class="logo">
                                 <img src="{$res['avatar']}">
@@ -422,15 +423,15 @@
                         </span>
 
                         <div class="addform" action="" name="" >
-                             <span>上传头像</span>
-                            <input type="file" id="photo" placeholder="上传头像"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                             <span>上传资料</span>
+                            <input type="file" id="photo" name="pic" placeholder="企业证明资料"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
                         </div>
                     </div>
                     <footer class="footer" style="display: flex;justify-content: center;padding: 60px 0 30px 0;">
                         <div class="submit" onclick="apply()">提交审核</div>
                     </footer>
                 </div>
-
+                </form>
             </div>
 
 
@@ -466,25 +467,33 @@
     })
 
         function apply() {
-            var linkman = $('#linkman').val();
-            var identity = $('#identity').val();
-            var linkphone = $('#linkphone').val();
-            var linkmail = $('#linkmail').val();
+            var form = $('#form');
+            var formdata = new FormData(form[0]);
+            // var linkman = $('#linkman').val();
+            // var identity = $('#identity').val();
+            // var linkphone = $('#linkphone').val();
+            // var linkmail = $('#linkmail').val();
+            // var info = $('#photo').val();
             $.ajax({
                 url: '{:U("Home/Account/doApply")}',
+                async : false,
+                cache : false,
+                contentType : false,
+                processData : false,
                 type: 'POST',
-                data: {
-                    'linkman': linkman,
-                    'identity': identity,
-                    'linkphone': linkphone,
-                    'linkmail': linkmail
-                },
-                dataType: "json",
-                success: function (ret) {
-                    alert(ret.msg);
+                data: formdata,
+                success:function(ret){
+                    if(ret.status == 1){
+                        alert(ret.msg);
+                        window.location.href='{:U("Home/Account/index")}';
+                    }else{
+                        alert(ret.msg)
+                    }
                 }
             })
+           
         }
+
         //互动消息
         // $('.firstpage').click(function (event) {
         //     window.location.href = "{:U('Home/Admin/index')}";

@@ -10,12 +10,31 @@ class AttachmentController extends CommonController
         $type = I('type') == 2?'video':'image';
         $map['uid'] = ['eq',$uid];
         $map['type'] = ['eq',$type];
-        $res = $attach -> where($map) -> select();
+
+        // 每页显示条数
+        $num = 12;
+
+        $totalRow = $attach -> where($map) -> count();
+        // 实例化分页类
+        $page = new \Think\Page($totalRow , $num);
+        $res = $attach -> where($map) -> limit( $page->firstRow . ',' . $page->listRows ) -> select();
         foreach ($res as $k => &$v) {
             $replace = '/\.\/Uploads\//';
             $v['url'] = preg_replace($replace,'/project/media/Uploads/',$v['url']);
         }
+        $totalPage = ceil($totalRow/$num);
+        $nowpage = $page->parameter['p'];
+        $nowpage = $nowpage?$nowpage:1;
+        $next = $nowpage+1;
+        $before = $nowpage - 1;
+        if($next>$totalPage){
+            $next = $totalPage;
+        }
         $this -> assign('data',$res);
+        $this -> assign('totalPage',$totalPage);
+        $this -> assign('next',$next);
+        $this -> assign('nowpage',$nowpage);
+        $this -> assign('before',$before);
         $this -> display();
     }
 
@@ -121,8 +140,10 @@ class AttachmentController extends CommonController
         // dump($insertid);exit;
     }
 
-    public function test(){
-        $this-> display();
+    public function change(){
+        $fileName = I('filename');
+        $id = I('id');
+        
     }
 
 }

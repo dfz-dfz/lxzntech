@@ -201,6 +201,18 @@ class CountController extends CommonController
 		$comment = D('portal_comment');
 		$aid = $title -> where("uid = $uid") -> order('aid') -> getField('aid',true);
 		$date = I('day');
+		if(is_numeric($date)){
+			$start_time = strtotime(date('Y-m-d', strtotime("-{$date} days")));
+			$end_time = $end_time?$end_time:strtotime(date('Y-m-d',strtotime('+1 days')));
+		}else{
+			$date = explode('-',$date);
+			$start_time = trim($date[0]);
+			$end_time = trim($date[1]);
+			$start_time = strtotime($start_time);
+			$end_time = strtotime($end_time);
+		}
+		$start_time = $start_time?date('Ymd', $start_time):date('Ymd', strtotime('-6 days'));
+		$end_time = $end_time?date('Ymd', $end_time):date('Ymd',time());
 		if($aid){
 			// 阅读量
 			$map['aid'] = ['in',$aid];
@@ -255,18 +267,7 @@ class CountController extends CommonController
 			$comnum = round($comnum*100,2)."%";
 
 			// 表格图像显示数据
-			if(is_numeric($date)){
-				$start_time = strtotime(date('Y-m-d', strtotime("-{$date} days")));
-				$end_time = $end_time?$end_time:strtotime(date('Y-m-d',strtotime('+1 days')));
-			}else{
-				$date = explode('-',$date);
-				$start_time = trim($date[0]);
-				$end_time = trim($date[1]);
-				$start_time = strtotime($start_time);
-				$end_time = strtotime($end_time);
-			}
-			$start_time = $start_time?date('Ymd', $start_time):date('Ymd', strtotime('-6 days'));
-			$end_time = $end_time?date('Ymd', $end_time):date('Ymd',time());
+			
 			$logwhere['aid'] = ['in',$aid];
 			$logwhere['day'] = [['lt',$end_time],['gt',$start_time]];
 			$logData = $log -> where($logwhere) -> select();
@@ -279,7 +280,7 @@ class CountController extends CommonController
 					$fav[] = $v;
 				}
 			}
-			$days = getDateFromRange($start_time,$end_time);
+			// $days = getDateFromRange($start_time,$end_time);
 
 			$st = strtotime($start_time);
 			$ed = strtotime($end_time);
@@ -287,12 +288,8 @@ class CountController extends CommonController
 			$commentMap['idtype'] = ['eq','aid'];
 			$commentMap['dateline'] = [['lt',$ed],['gt',$st]];
 			$commentRes = $comment -> where($commentMap) -> select();
-		}else{
-			$start_time = strtotime(date('Y-m-d', strtotime("-{$date} days")));
-			$end_time = $end_time?$end_time:strtotime(date('Y-m-d',strtotime('+1 days')));
-			$days = getDateFromRange($start_time,$end_time);
 		}
-		
+			$days = getDateFromRange($start_time,$end_time);
 		foreach ($commentRes as $kc => &$vc) {
 			$vc['dateline'] = date('Y-m-d',$vc['dateline']);
 			$commentData["{$vc['dateline']}"][] = $vc;

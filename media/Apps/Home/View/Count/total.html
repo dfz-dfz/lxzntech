@@ -656,6 +656,7 @@
                       ,format:"yyyy/MM/dd"
                       ,range: true,
                         done: function(value, date, endDate){
+                            console.log(value);
                             days = value;
                             totalData(days);
                       }                  
@@ -777,45 +778,6 @@
         $('#singlecount').click(function(event) {
             window.location.href = '{:U("Home/Count/single")}';
         });
-       
-        //日历
-        layui.use('laydate', function(){
-              var laydate = layui.laydate;
-              
-              //日期范围
-                laydate.render({
-                  elem: '#test1'
-                  ,format:"yyyy/MM/dd"
-                  ,range: true,
-                    done: function(value, date, endDate){
-                        
-                  }                  
-                });
-                //年范围
-                laydate.render({
-                  elem: '#test7'
-                  ,type: 'year'
-                  ,range: true
-                });
-                //年月范围
-                laydate.render({
-                  elem: '#test8'
-                  ,type: 'month'
-                  ,range: true
-                });
-                //时间范围
-                laydate.render({
-                  elem: '#test9'
-                  ,type: 'time'
-                  ,range: true
-                });
-                //日期时间范围
-                laydate.render({
-                  elem: '#test10'
-                  ,type: 'datetime'
-                  ,range: true
-                }); 
-        }); 
         
         //首页
         $('.status').click(function() {

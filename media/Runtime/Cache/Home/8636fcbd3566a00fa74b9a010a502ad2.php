@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
     <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
     <link rel="stylesheet" href="/project/media/Public/css/public.css">
+    <link rel="stylesheet" href="/project/media/Public/css/bootstrap.min.css">
 </head>
 <style>
     body,
@@ -59,7 +60,7 @@
 
     .header .top_first {
         width: 1100px;
-        height: 70px;
+        height: 73px;
         background-color: #fff;
         margin-left: 20%;
         display: inline-flex;
@@ -387,6 +388,11 @@
         margin: 0 24px;
         border-radius: 4px;
     }
+
+    /**/
+    #myModal img {
+        width: 100%;
+    }
 </style>
 
 <body>
@@ -394,7 +400,7 @@
         <?php echo W('Cate/header');?>
         <!-- 左侧导航栏 -->
         <div class="firstpage">
-        <div class="container">
+        <div class="container" style="margin-left: 0;">
             <?php echo W('Cate/nav');?>
    <div class="content">
     <form action="" id="form" method="post" enctype="multipart/form-data">
@@ -467,29 +473,38 @@
                 <span style="background-color: #3bb9ad;font-weight: bold;color: #fff;width: 92px;border: 1px solid #fff;" onclick="sentData()">发布</span>
                 <!-- <span>定时发送</span> -->
                 <span onclick="save()">存草稿</span>
-                <span>预览</span>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">预览</button>
             </div>
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="margin-top: 70px;width: 320px;height: 90%;">
+            <div class="modal-content">
+                <div class="modal-body" id="artcontent">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
+    <script src="/project/media/Public/js/bootstrap.min.js"></script>
     <script src="/project/media/Public/js/jquery.min.js"></script>
     <script src="/project/media/Public/js/trumbowyg.js"></script>
-    <script src="/project/media/Public/js/trumbowyg.base64.js"></script>   
+    <script src="/project/media/Public/js/trumbowyg.base64.js"></script>
     <script type="text/javascript">
-        //上传头像
+        //上传封面
         document.getElementById("photo").addEventListener("change",function(e){
             var files =this.files;
             var img = new Image();
             var reader =new FileReader();
             reader.readAsDataURL(files[0]);
             reader.onload =function(e){
-                // var dx =(e.total/600)/600;
-                // if(dx>=2){
-                //     alert("文件大小大于140*100");
-                //     return;
-                // }
                 $(".logo img").attr("src",this.result)
                     img.style.width ="60%";
                     img.style.height ="30%";
@@ -520,12 +535,18 @@
                 type: 'POST',
                 data: formdata,
                 success:function(ret){
-                    alert(JSON.stringify(ret));
+                    if(ret.status == 1){
+                        alert(ret.msg);
+                        window.location.href="<?php echo U('home/main/main');?>";
+                    }else{
+                        alert(ret.msg);
+                    }
                     // alert('发布成功');
                 }
             })
         }
 
+        //存草稿
         function save(){
             var form = $('#form');
             var formdata = new FormData(form[0]);
@@ -539,10 +560,14 @@
                 data: formdata,
                 success:function(ret){
                     alert(JSON.stringify(ret));
-                    // alert('发布成功');
                 }
             })
         }
+
+        //预览
+        $('.btn-primary').click(function() {
+            $('#artcontent').html($('#customized-buttonpane').html());
+        });
 
         $('.cover_page').click(function() {
             if($('#mp').attr("checked")){

@@ -504,7 +504,7 @@
                 </div>
              <!-- 发布状态部分 -->
                 <div class="content_main">
-                    <div class="content_pic">
+                    <!-- <div class="content_pic">
                         <img src="/project/media/Public/images/index/banner_one.png">
                         <div class="content_title">
                             <p> 如果腾讯阿里消失了，这个世界将会变什么样？</p>
@@ -592,7 +592,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- 跳转页面 -->

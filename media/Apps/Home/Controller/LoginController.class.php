@@ -52,7 +52,7 @@ class LoginController extends Controller
             $return['msg'] = '密码错误！';
             $this->ajaxReturn($return);
         }
-        $res = $info -> field('nickname,introduce,avatar,territory,linkman,linkphone,company,address,website') -> where("uid = {$data['uid']}") -> find();
+        $res = $info -> field('id,nickname,introduce,avatar,territory,linkman,linkphone,company,address,website') -> where("uid = {$data['uid']}") -> find();
         $res['territory'] = D('portal_media_territory') -> where("id = {$res['territory']}") -> getField('territory');
         $result = array_merge($res,$data);
         $_SESSION["userdata"] = $result;
