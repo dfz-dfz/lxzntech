@@ -1,19 +1,22 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>粉丝</title>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/icon/iconfont.css">
+    <title>转发</title>
+    <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
+    <!-- <link href="/project/media/Public/css/bootstrap.min.css" rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="__PUBLIC__/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/laydate.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/public.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/public.css" media="all">
 </head>
 <style>
-
+    * {
+        padding: 0;
+    }
 
     body,
     html {
@@ -29,7 +32,7 @@
     i {
         font-style: normal;
     }
-   .icon-house {
+    .icon-house {
         font-family: "iconfont" !important;
         color: #a6a8ad;
         font-size: 24px;
@@ -137,6 +140,9 @@
         top: 22px;
     }
 
+
+
+
     /* 左侧导航栏 */
     .container {
         padding-left: 20%;
@@ -191,7 +197,9 @@
         margin-left: 10px;
     }
 
-   /*右侧版心部分*/
+
+/*................*/
+
     .content {
         width: 870px;
         border: 1px solid #eee;
@@ -203,7 +211,7 @@
         margin-bottom: 30px;
 
     }
-  /* 粉丝收藏转发 */
+
     .content .content_all {
         display: flex;
         flex-wrap: nowrap;
@@ -212,6 +220,7 @@
         position: relative;
         padding-left: 25px;
         line-height: 100px;
+
     }
 
     .content .content_all div>a {
@@ -221,12 +230,14 @@
         margin: 0 42px 0 0;
     }
 
-    .content .content_all>span{
+    .content .content_all .transform span {
         width: 38px;
         height: 3px;
         background-color: #3db9ac;
         position: absolute;
         bottom: 0;
+        right: 36px;
+
     }
 
     .content .content_all .collection {
@@ -243,15 +254,21 @@
         background-color: red;
         /* display: none; */
     }
-   /* 总计消息 */
+
+    /* 消息总计 */
+
     .allinformation .allinformation_number {
-        padding: 20px 0 0px 30px;
+        padding: 20px 0 5px 25px;
         font-size: 16px;
         color: #111;
 
     }
 
-    /* 粉丝消息部分 */
+    /* 粉丝转发部分 */
+
+    .contentitem {
+        padding: 0 0 20px 0;
+    }
 
     .contentitem .usercomment {
         padding: 20px 10px 10px 25px;
@@ -259,7 +276,7 @@
         position: relative;
     }
 
-     .usercomment img {
+    .contentitem .usercomment img {
         width: 40px;
         height: 40px;
         margin-right: 15px;
@@ -267,24 +284,24 @@
         margin-top: -30px;
     }
 
-     .usercomment .commentcontent {
+    .contentitem .commentcontent {
         display: inline-block;
         width: 80%;
     }
 
-      .usercomment .commentcontent span {
+    .contentitem .commentcontent span {
         color: #232323;
         font-size: 14px;
     }
 
-     .usercomment.commentcontent>p {
+    .contentitem .commentcontent>p {
         margin-bottom: 6px;
         color: #232323;
         font-size: 12px;
     }
 
-      .usercomment .commentcontent p>a {
-        color: #3db9ac;
+    .contentitem .commentcontent p>a {
+        color: #52ade2;
         font-size: 12px;
         text-decoration: none;
     }
@@ -308,11 +325,8 @@
     }
 
     .pageall>span {
-        font-size: 18px;
+        font-size: 14px;
         color: #545454;
-        position: absolute;
-        left: 62%;
-        font-size: 18px;
     }
 
     .pageall .choose_page {
@@ -321,7 +335,7 @@
         border: 1px solid #ebebeb;
         border-radius: 10px;
         position: absolute;
-        right: 28%;
+        right: 36%;
     }
 
     .pageall .choose_page a>i {
@@ -353,8 +367,8 @@
     }
 
     .pageall .allright {
-        width: 46px;
-        height: 28px;
+        width: 38px;
+        height: 30px;
         border: 1px solid #ebebeb;
         position: absolute;
         right: 20px;
@@ -373,14 +387,14 @@
 
 <body>
     <!-- 头部 -->
-    {:W('Cate/header')}
+    <?php echo W('Cate/header');?>
+
     <div class="firstpage">
         <!-- 左侧导航栏 -->
         <div class="container">
-            {:W('Cate/nav')}
-            <!-- 右侧版心部分 -->
-             <div class="content">
-            <!-- 粉丝收藏转发 -->
+            <?php echo W('Cate/nav');?>
+              <div class="content">
+            <!-- 转发部分 -->
             <div class="content_all">
                 <div>
                     <a href="javascript:;" id="fans">粉丝</a>
@@ -388,39 +402,51 @@
 
                 <div class="collection">
                     <a href="javascript:;" id="collect">收藏</a>
-                    <!-- <div id="infostyle"></div> -->
+                    <div id="infostyle"></div>
                 </div>
-                <div>
+                <div class="transform" style="position: relative;">
                     <a href="javascript:;" id="transform">转发</a>
+                    <span></span>
                 </div>
-                <span></span>
+
             </div>
-            <!-- 总计消息 -->
+            <!-- 消息总计 -->
             <div class="allinformation">
                 <div class="allinformation_number" id="fansnum">
-                    <!-- <p>共3条消息</p> -->
+                    <p>共3条消息</p>
                 </div>
 
             </div>
 
-            <!-- 粉丝消息部分 -->
+            <!-- 粉丝转发部分 -->
             <div class="contentitem" id="contentitem">
-               <!--  <div class="usercomment">
-                    <img src="__PUBLIC__/images/index/banner_one.png" alt="">
+                <div class="usercomment">
+                    <img src="/project/media/Public/images/index/banner_one.png" alt="">
                     <div class="commentcontent">
                         <p>
                             <span>沈思安好帅</span>
                         </p>
-                        <p>成为了你的粉丝</p>
+                        <p>转发了你的文章&nbsp; [&nbsp;
+                            <a href="javascript:;">如果腾讯阿里消失了，世界将会变成什么样 &nbsp;?</a> &nbsp; ] </p>
                         <div class="time">1小时前</div>
                     </div>
-                </div> -->
-
+                </div>
+                <div class="usercomment">
+                    <img src="/project/media/Public/images/index/banner_one.png" alt="">
+                    <div class="commentcontent">
+                        <p>
+                            <span>沈思安好帅</span>
+                        </p>
+                        <p>转发了你的文章&nbsp; [&nbsp;
+                            <a href="javascript:;">如果腾讯阿里消失了，世界将会变成什么样 &nbsp;?</a> &nbsp; ] </p>
+                        <div class="time">1小时前</div>
+                    </div>
+                </div>
             </div>
 
             <!-- 跳转页面 -->
             <div class="pageall" id="page">
-                <!-- <span>1&nbsp;/&nbsp;5</span>
+                <span>1&nbsp;/&nbsp;2</span>
                 <div class="choose_page">
                     <a href="javascript:;">
                         <i></i>
@@ -433,19 +459,23 @@
                 </div>
                 <div class="allright">
                     <a href="javascript:;">确定</a>
-                </div> -->
+                </div>
 
             </div>
-
 
         </div>
         </div>
 
     </div>
 
-    <script src="__PUBLIC__/js/jquery-3.3.1.min.js"></script>
-    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+
+
+    <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
+    <script src="/project/media/Public/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+        //  // 限制输入框长度
+        //  var input = document.querySelector("#input")
+        //    console.log(input.maxLength);
         var num = 1;
         var total = 1;
         window.onload = function(){
@@ -457,9 +487,9 @@
                 alert('已经到最后一页');return;
             }
             $.ajax({
-                url: '{:U("Home/Messages/fansData")}',
+                url: '<?php echo U("Home/Messages/fansData");?>',
                 type: 'post',
-                data: {'type': 1,'num':num},
+                data: {'type': 3,'num':num},
                 success:function(event) {
                 var html = '';
                 var page = '';
@@ -474,7 +504,7 @@
                                     html += '<p>';
                                         html += '<span>'+data[i]['username']+'</span>';
                                     html += '</p>';
-                                    html += '<p>成为了你的粉丝</p>';
+                                    html += '<p>'+data[i]['title']+'</p>';
                                     html += '<div class="time">'+data[i]['dateline']+'</div>';
                                 html += '</div>';
                             html += '</div>';
@@ -501,7 +531,7 @@
                         $('#page').html(page);
                         $('#fansnum').html(fansnum);
                     }else{
-                        html = '<p style="text-align:center";>暂无数据</p>';
+                        html = '<p style="text-align:center;">暂无数据</p>'
                         $('#contentitem').html(html);
                         $('#page').html(page);
                         $('#fansnum').html(fansnum);
@@ -522,48 +552,52 @@
             fans(num);
         }
 
-        $('#collect').click(function(event) {
-            window.location.href = "{:U('Home/Messages/collect')}";
+        $('.firstpage').click(function(event) {
+             window.location.href = "<?php echo U('Home/Admin/index');?>";
         });
-        $('#transform').click(function(event) {
-            window.location.href = "{:U('Home/Messages/transform')}";
+        $('#fans').click(function(event) {
+            window.location.href = "<?php echo U('Home/Messages/fans');?>";
+        });
+
+        $('#collect').click(function(event) {
+            window.location.href = "<?php echo U('Home/Messages/collect');?>";
         });
 
         //首页
         $('.status').click(function() {
-            window.location.href = "{:U('Home/Admin/index')}";
+            window.location.href = "<?php echo U('Home/Admin/index');?>";
         });
         //互动消息
         $('#message').click(function() {
-            window.location.href = "{:U('Home/Messages/fans')}";
+            window.location.href = "<?php echo U('Home/Messages/fans');?>";
         });
         //粉丝量统计
         $('#fansnumcount').click(function() {
-            window.location.href = "{:U('Home/fans/index')}";
+            window.location.href = "<?php echo U('Home/fans/index');?>";
         });
         //图文统计
         $('#totalsingle').click(function() {
-            window.location.href = "{:U('Home/Count/single')}";
+            window.location.href = "<?php echo U('Home/Count/single');?>";
         });
         //我的素材
         $('#attachment').click(function() {
-            window.location.href = "{:U('Home/Attachment/index')}";
+            window.location.href = "<?php echo U('Home/Attachment/index');?>";
         });
         //写文章
         $('#edit').click(function() {
-            window.location.href = "{:U('Home/Main/edit')}";
+            window.location.href = "<?php echo U('Home/Main/edit');?>";
         });
         //我的内容
         $('#content').click(function() {
-            window.location.href = "{:U('Home/Main/main')}";
+            window.location.href = "<?php echo U('Home/Main/main');?>";
         });
         //账号设置
         $('#accountset').click(function() {
-            window.location.href = "{:U('Home/Account/index')}";
+            window.location.href = "<?php echo U('Home/Account/index');?>";
         });
         //评论管理
         $('#comment').click(function() {
-           window.location.href = "{:U('Home/comment/newmsg')}";
+           window.location.href = "<?php echo U('Home/comment/newmsg');?>";
         });
     </script>
 </body>

@@ -1,0 +1,6 @@
+[ 2018-06-27T15:08:10+08:00 ] 192.168.0.136 /project/media/home/register/doinfo.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `pre_portal_media_users` SET `status`='2' WHERE ( buid =  )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : UPDATE `pre_portal_media_users` SET `status`='2' WHERE ( buid =  )
+

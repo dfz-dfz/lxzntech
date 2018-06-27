@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
   <html>
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
       <title>注册</title>
-      <link rel="stylesheet" href="__PUBLIC__/css/register.css">
-      <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+      <link rel="stylesheet" href="/project/media/Public/css/register.css">
+      <script type="text/javascript" src="/project/media/Public/js/jquery.min.js"></script>
   </head>
   <body>
       <div class="all">
@@ -146,7 +146,7 @@
       function checkMobile(){
         var phone = $('#accound').val();
         $.ajax({
-          url:"{:U('Home/Register/checkMobile')}",
+          url:"<?php echo U('Home/Register/checkMobile');?>",
           type:"post",
           data:{
             'phone':phone
@@ -179,7 +179,7 @@
             alert('两次输入的密码不一致');return;
           }
           $.ajax({
-            url:"{:U('Home/Register/doRegister')}",
+            url:"<?php echo U('Home/Register/doRegister');?>",
             type:"post",
             data:{
               'username':accound,'password':password,'code':code
@@ -187,7 +187,7 @@
             success:function(data)
             {
               if(data.status == 1){
-                window.location.href = "{:U('Home/Register/chooseType')}";
+                window.location.href = "<?php echo U('Home/Register/chooseType');?>";
               }else{
                 alert(data.msg)
               }

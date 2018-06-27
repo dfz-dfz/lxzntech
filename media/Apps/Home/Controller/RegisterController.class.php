@@ -132,6 +132,9 @@ class RegisterController extends Controller
 
     // 显示选择类型页面
     public function choosetype(){
+        if(!$_SESSION['userdata']){
+            $this -> redirect('Login/login');
+        }
     	$this -> display();
     }
 
@@ -165,6 +168,9 @@ class RegisterController extends Controller
 
     // 用户资料页面显示
     public function info(){
+        if(!$_SESSION['userdata']){
+            $this -> redirect('Login/login');
+        }
     	$userdata = $_SESSION['userdata'];
     	$territory = D('portal_media_territory');
     	$res = $territory -> select();
@@ -176,10 +182,12 @@ class RegisterController extends Controller
 
     // 进行用户资料录入
     public function doInfo(){
-    	$uid = $_SESSION['userdata']['buid'];
+        $uid = $_SESSION['userdata']['uid'];
     	$nickname = I('nickname');
     	$introduce = I('introduce');
-    	$avatar = setAvatar($uid);
+        if($_FILES['pic']['size']){
+            $avatar = setAvatar($uid);
+        }
     	$territory = I('territory');
     	$linkman = I('linkman');
     	$identity = I('identity');
@@ -209,18 +217,13 @@ class RegisterController extends Controller
     	$data['prove'] = $prove;
     	$info = D('portal_media_info');
     	$user = D('portal_media_users');
-    	$res = $info -> add($post);
+    	$res = $info -> add($data);
     	if($res){
-    		$user -> where("buid = $buid") -> setField('status',2);
-    		$return['status'] = 1;
-    		$return['data'] = '';
-    		$return['msg'] = '录入成功';
+    		$user -> where("uid = $uid") -> setField('status',2);
+            $this -> redirect('Admin/index');
     	}else{
-    		$return['status'] = 1;
-    		$return['data'] = '';
-    		$return['msg'] = '录入失败';
+    		echo "<script>alert('录入失败')</script>";
     	}
-    	$this -> ajaxReturn($return);
     }
 
     public function named(){
@@ -270,20 +273,37 @@ class RegisterController extends Controller
 	    $map['code'] = ['eq',$code];
 	    $daytime = date('Ymd',time());
 	    $map['daytime'] = ['eq',$daytime];
-	    $res = $veriCode -> where($map) -> select();
+	    $res = $veriCode -> where($map) -> find();
 	    if(!$res){
-	        return 0;//验证失败返回值
+	        $this -> ajaxReturn(0);//验证失败返回值
 	    }
-	    if($res[0]['status']){
-	        return 3;//已使用返回值
+	    if($res['status']){
+	        $this -> ajaxReturn(3);//已使用返回值
 	    }
-	    $dateline = $res[0]['dateline']+5*60;
+	    $dateline = $res['dateline']+5*60;
 	    if($dateline < time()){
-	        return 2;//失效返回值
+	        $this -> ajaxReturn(2);//失效返回值
 	    }
 	    $data['status'] = 1;
 	    $veriCode -> where($map) -> save($data);
-	    return 1;//成功返回值
+	    $this -> ajaxReturn(1);//成功返回值
 	}
+
+    public function checkname(){
+        $name = I('name');
+        $info = D('portal_media_info');
+        $map['nickname'] = ['eq',$name];
+        $res = $info -> where($map) -> count();
+        if($res){
+            $return['status'] = 1;
+            $return['data'] = '';
+            $return['msg'] = '该用户名已存在';
+        }else{
+            $return['status'] = 0;
+            $return['data'] = '';
+            $return['msg'] = '';
+        }
+        $this -> ajaxReturn($return);
+    }
 
 }

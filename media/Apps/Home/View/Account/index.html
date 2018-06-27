@@ -36,7 +36,7 @@
 
     .icon-bianji {
         position: absolute;
-        right: 4%;
+        right: 25px;
         color: #707070;
         cursor: pointer;
     }
@@ -229,7 +229,7 @@
     .replaceall {
         display: flex;
         align-items: center;
-        padding: 15px 0 0px 24px;
+        padding: 15px 0 0 20px;
         font-size: 12px;
         color: #232323;
     }
@@ -245,13 +245,13 @@
         height: 14px;
         background-color: #3cb9ac;
         position: absolute;
-        top: 33px;
+        top: 26px;
         left: 6px;
     }
 
     .allinformation .allinformation_number {
         height: 70px;
-        line-height: 80px;
+        line-height: 70px;
         font-size: 14px;
         color: #141414;
         position: relative;
@@ -261,7 +261,7 @@
     }
 
     .allinformation .allinformation_number p {
-        margin: 0 0 0 20px;
+        margin-left: 20px;
     }
 
     .allinformation .allinformation_number .letplease {
@@ -274,7 +274,7 @@
         text-align: center;
         line-height: 26px;
         position: absolute;
-        right: 5%;
+        right: 25px;
         bottom: 18px;
         cursor: pointer;
     }
@@ -284,17 +284,35 @@
         color: #232323;
         height: 58px;
         line-height: 58px;
+        display: flex;
+    }
+
+    .allinformation .abstract {
+        height: auto;
+        border-bottom: 1px solid #e1e1e1;
+        font-size: 14px;
+        color: #232323;
         position: relative;
     }
 
-    .allinformation .truename p {
-        margin: 0 0 0 0;
+    .allinformation .abstract span {
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
     }
 
-    .allinformation .truename p>span {
-        display: inline-block;
-        width: 30%;
-        white-space: nowrap;
+    .allinformation .abstract div {
+        margin-left: 180px;
+        padding: 15px 25px 15px 0;
+    }
+
+    .allinformation .truename span {
+        position: relative;
+    }
+
+    .allinformation .truename div {
+        position: absolute;
+        margin-left: 180px;
     }
 
     /* 上传部分 */
@@ -302,7 +320,6 @@
     .uploaddata {
         height: 130px;
         border-bottom: 1px solid #e1e1e1;
-        padding: 15px 0 15px 6px;
         font-size: 14px;
         color: #232323;
         line-height: 14px;
@@ -362,7 +379,7 @@
 
    .uploaddata > span{
        display:inline-block;
-       width: 30%;
+       width: 180px;
    }
 
 
@@ -383,7 +400,7 @@
                 </div>
                 <p class="replaceall">
                     <i class="iconfont icon">&#xe60e;</i>
-                    <span style="margin-left: 15px;"> 账号信息7天内只能修改一次</span>
+                    <span style="margin-left: 15px;"> 账号信息15天内只能修改一次</span>
                 </p>
                 <!-- 基本信息部分 -->
                 <div class="allinformation">
@@ -391,72 +408,56 @@
                         <i></i>
                         <p>
                             <strong>基本信息</strong>
+                            <i class="iconfont icon-bianji basic" onclick="checktime(1)"></i>
                         </p>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>账号名称</span>
-                            <span>{$res['nickname']}</span>
-                            <i class="iconfont icon-bianji basic"></i>
-                        </p>
+                        <span>账号名称</span>
+                        <div>{$res['nickname']}</div>
                     </div>
 
-                    <div class="truename">
-                        <p>
-                            <span>账号简介</span>
-                            <span>{$res['introduce']}</span>
-                            <i class="iconfont icon-bianji basic"></i>
-                        </p>
+                    <div class="abstract" style="height: auto;">
+                        <span>账号简介</span>
+                        <div>{$res['introduce']}</div>
                     </div>
                     <!-- 上传部分 -->
                     <div class="uploaddata">
                         <span class="smallheaderscupture">头像</span>
-                        <span class="headerscupture">
+                        <div class="headerscupture">
                             <span class="logo">
                                 <img src="{$res['avatar']}">
                             </span>
-                        </span>
+                        </div>
 
                         <!-- <div class="addform" action="" name="" >
                              <span>上传头像</span>
                             <input type="file" id="photo" placeholder="上传头像"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
                         </div> -->
-                        <i class="iconfont icon-bianji basic"></i>
+                        <!-- <i class="iconfont icon-bianji basic"></i> -->
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>领域</span>
-                            <span>{$res['territory']}</span>
-                            <i class="iconfont icon-bianji basic" style="right: 4%;"></i>
-                        </p>
+                        <span>领域</span>
+                        <div>{$res['territory']}</div>
                     </div>
                     <!-- 企业信息 -->
                     <div class="allinformation_number">
                         <i></i>
                         <p>
                             <strong>企业信息</strong>
+                            <i class="iconfont icon-bianji company" onclick="checktime(2)"></i>                            
                         </p>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>企业机构信息</span>
-                            <span>{$res['company']}</span>
-                              <i class="iconfont icon-bianji company" style="right: 4%;"></i>
-                        </p>
+                        <span>企业机构信息</span>
+                        <div>{$res['company']}</div>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>企业地址</span>
-                            <span>{$res['address']}</span>
-                            <i class="iconfont icon-bianji company" style="right: 4%;"></i>
-                        </p>
+                        <span>企业地址</span>
+                        <div>{$res['address']}</div>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>官方网站</span>
-                            <span>{$res['website']}</span>
-                            <i class="iconfont icon-bianji company" style="right: 4%;"></i>
-                        </p>
+                        <span>官方网站</span>
+                        <div>{$res['website']}</div>
                     </div>
                     <!-- 运营人员身份信息 -->
                     <div class="allinformation_number">
@@ -467,29 +468,21 @@
                         </p>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>联系人真实姓名</span>
-                            <span>{$res['linkman']}</span>
-                        </p>
+                        <span>联系人真实姓名</span>
+                        <div>{$res['linkman']}</div>
                     </div>
 
                     <div class="truename">
-                        <p>
-                            <span>身份证号</span>
-                            <span>{$res['identity']}</span>
-                        </p>
+                        <span>身份证号</span>
+                        <div>{$res['identity']}</div>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>账号简介</span>
-                            <span>{$res['linkphone']}</span>
-                        </p>
+                        <span>账号简介</span>
+                        <div>{$res['linkphone']}</div>
                     </div>
                     <div class="truename">
-                        <p>
-                            <span>账号简介</span>
-                            <span>{$res['linkmail']}</span>
-                        </p>
+                        <span>账号简介</span>
+                        <div>{$res['linkmail']}</div>
                     </div>
                 </div>
             </div>
@@ -525,6 +518,25 @@
     //     // console.log(img);
     //   }
     //  })
+    //  
+        function checktime(val){
+            $.ajax({
+                url: '{:U("Home/Account/checktime")}',
+                type: 'POST',
+                data: {'action': val},
+                success: function (ret) {
+                    if(ret == 1){
+                        alert('15天内只能修改一次');
+                    }else{
+                        if(val == 1){
+                            window.location.href = "{:U('Home/Account/basicapply')}";
+                        }else if(val == 2){
+                            window.location.href = "{:U('Home/Account/company')}";
+                        }
+                    }
+                }
+            })
+        }
 
         //上传头像光标失去焦点
          $('input[readonly]').on('focus', function() {
@@ -533,12 +545,12 @@
         $('#modification').click(function() {
             window.location.href = "{:U('Home/Account/apply')}";
         });
-        $('.basic').click(function() {
-            window.location.href = "{:U('Home/Account/basicapply')}";
-        });
-        $('.company').click(function() {
-            window.location.href = "{:U('Home/Account/company')}";
-        });
+        // $('.basic').click(function() {
+        //     window.location.href = "{:U('Home/Account/basicapply')}";
+        // });
+        // $('.company').click(function() {
+        //     window.location.href = "{:U('Home/Account/company')}";
+        // });
         //互动消息
         // $('.firstpage').click(function (event) {
         //     window.location.href = "{:U('Home/Admin/index')}";

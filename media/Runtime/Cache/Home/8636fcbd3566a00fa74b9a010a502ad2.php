@@ -473,7 +473,7 @@
                 <span style="background-color: #3bb9ad;font-weight: bold;color: #fff;width: 92px;border: 1px solid #fff;" onclick="sentData()">发布</span>
                 <!-- <span>定时发送</span> -->
                 <span onclick="save()">存草稿</span>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">预览</button>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="border-radius: 4px;">预览</button>
             </div>
         </div>
     </footer>

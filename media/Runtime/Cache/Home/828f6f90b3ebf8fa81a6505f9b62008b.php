@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>账号设置</title>
+    <title>申请修改</title>
     <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
     <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
     <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
+    <!-- <link href="/project/media/Public/css/bootstrap.min.css" rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/project/media/Public/css/public.css" media="all">
 </head>
@@ -19,6 +20,7 @@
         min-width: 1375px;
     }
 
+
     ul li {
         list-style-type: none;
     }
@@ -27,19 +29,6 @@
         font-style: normal;
     }
 
-    .icon {
-        font-family: "iconfont" !important;
-        font-style: normal;
-        color: #52ade2;
-        font-size: 20px;
-    }
-
-    .icon-bianji {
-        position: absolute;
-        right: 25px;
-        color: #707070;
-        cursor: pointer;
-    }
     .icon-house {
         font-family: "iconfont" !important;
         color: #a6a8ad;
@@ -47,6 +36,13 @@
         left: 40px;
         line-height: 50px;
         top: 0;
+    }
+
+    .icon {
+        font-family: "iconfont" !important;
+        font-style: normal;
+        color: #52ade2;
+        font-size: 20px;
     }
 
     /* 头部 */
@@ -131,9 +127,12 @@
         border-right: 5px solid transparent;
         border-top: 10px solid #999;
         position: absolute;
-        right: -40%;
+        right: -50%;
         top: 22px;
     }
+
+
+
     /* 左侧导航栏 */
     .container {
         padding-left: 20%;
@@ -161,7 +160,7 @@
         display: inline-block;
         width: 100%;
         font-size: 18px;
-       text-decoration: none;
+        text-decoration: none;
     }
 
     .container .container_left .firstpage:hover {
@@ -188,26 +187,26 @@
         margin-left: 10px;
     }
 
-    /* 账号设置部分 */
+
+
+    /* 申请修改部分 */
 
     .content {
         width: 870px;
-        border: 1px solid #eee;
-        border-top-color: #fff;
+        border: 1px solid #e1e1e1;
         background-color: #fff;
         display: inline-block;
         vertical-align: top;
         margin-left: 24px;
-        background-color: #fff;
+        border-top-color: #fff;
         margin-bottom: 30px;
-
     }
 
     .content .content_all {
         height: 65px;
         border-bottom: 1px solid #eee;
         position: relative;
-        padding-left: 20px;
+        padding-left: 15px;
     }
 
     .content .content_all>a {
@@ -229,15 +228,20 @@
     .replaceall {
         display: flex;
         align-items: center;
-        padding: 15px 0 0 20px;
+        padding: 15px 0 0px 15px;
         font-size: 12px;
         color: #232323;
     }
 
-    /* 基本信息部分 */
+    /* 公告部分 */
+
+    .main {
+        padding: 10px 0 20px 0;
+    }
 
     .allinformation {
-        padding-left: 20px;
+        margin-left: 10px;
+        padding-left: 15px;
     }
 
     .allinformation .allinformation_number>i {
@@ -245,81 +249,49 @@
         height: 14px;
         background-color: #3cb9ac;
         position: absolute;
-        top: 26px;
-        left: 6px;
+        top: 18px;
     }
 
     .allinformation .allinformation_number {
-        height: 70px;
-        line-height: 70px;
+        line-height: 58px;
+        height: 58px;
         font-size: 14px;
         color: #141414;
         position: relative;
         background-color: #fff;
+        display: flex;
+        align-items: center;
         border-bottom: 1px solid #e1e1e1;
-
     }
 
     .allinformation .allinformation_number p {
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
-    .allinformation .allinformation_number .letplease {
-        display: inline-block;
-        width: 85px;
-        height: 26px;
-        font-size: 14px;
-        color: #7c7c7c;
-        border: 1px solid #7c7c7c;
-        text-align: center;
-        line-height: 26px;
-        position: absolute;
-        right: 25px;
-        bottom: 18px;
-        cursor: pointer;
-    }
     .allinformation .truename {
         border-bottom: 1px solid #e1e1e1;
         font-size: 14px;
         color: #232323;
         height: 58px;
         line-height: 58px;
-        display: flex;
     }
 
-    .allinformation .abstract {
-        height: auto;
-        border-bottom: 1px solid #e1e1e1;
-        font-size: 14px;
-        color: #232323;
-        position: relative;
+    .allinformation .truename p>span {
+        display: inline-block;
+        width: 30%;
     }
-
-    .allinformation .abstract span {
-        position: absolute;
-        top: 50%;
-        margin-top: -10px;
-    }
-
-    .allinformation .abstract div {
-        margin-left: 180px;
-        padding: 15px 25px 15px 0;
-    }
-
-    .allinformation .truename span {
-        position: relative;
-    }
-
-    .allinformation .truename div {
-        position: absolute;
-        margin-left: 180px;
-    }
-
+  .truename input{
+    width: 200px;
+    height: 25px;
+    font-size: 14px;
+  }
+    /* 上传部分 */
     /* 上传部分 */
 
     .uploaddata {
         height: 130px;
         border-bottom: 1px solid #e1e1e1;
+        padding: 15px 0 15px 25px;
         font-size: 14px;
         color: #232323;
         line-height: 14px;
@@ -339,6 +311,7 @@
         align-items: center;
         border-radius: 5px;
         color: #fff;
+        cursor: pointer;
     }
 
     .uploaddata .headerscupture .logo {
@@ -377,11 +350,10 @@
         color: #fff;
     } */
 
-   .uploaddata > span{
+    .uploaddata > span{
        display:inline-block;
-       width: 180px;
-   }
-
+       width: 30%;
+    }
 
 </style>
 
@@ -393,164 +365,134 @@
         <div class="container">
             <?php echo W('Cate/nav');?>
             <div class="content">
-                <!-- 账号设置部分 -->
+                <!-- 申请修改部分 -->
                 <div class="content_all">
-                    <a href="javascript:;">账号设置</a>
+                    <a href="javascript:;">申请修改</a>
                     <span></span>
                 </div>
                 <p class="replaceall">
                     <i class="iconfont icon">&#xe60e;</i>
-                    <span style="margin-left: 15px;"> 账号信息15天内只能修改一次</span>
+                    <span style="margin-left: 15px;"> 提交相关企业证明资料之后，由后台人员审核通过后修改</span>
                 </p>
-                <!-- 基本信息部分 -->
-                <div class="allinformation">
-                    <div class="allinformation_number">
-                        <i></i>
-                        <p>
-                            <strong>基本信息</strong>
-                            <i class="iconfont icon-bianji basic" onclick="checktime(1)"></i>
-                        </p>
-                    </div>
-                    <div class="truename">
-                        <span>账号名称</span>
-                        <div><?php echo ($res['nickname']); ?></div>
-                    </div>
-
-                    <div class="abstract" style="height: auto;">
-                        <span>账号简介</span>
-                        <div><?php echo ($res['introduce']); ?></div>
+                <!-- 公告部分 -->
+                <form action="" id="form" method="post" enctype="multipart/form-data">
+                <div class="main">
+                    <div class="allinformation">
+                        <div class="allinformation_number">
+                            <i></i>
+                            <p>
+                                <strong>运营人员身份信息</strong>
+                            </p>
+                        </div>
+                        <div class="truename">
+                            <p>
+                                <span>联系人真实姓名</span>
+                                <input type="text" name="linkman" value="<?php echo ($res['linkman']); ?>">
+                                <span></span>
+                            </p>
+                        </div>
+                        <div class="truename">
+                            <p>
+                                <span>身份证号</span>
+                                <input type="text" name="identity" value="<?php echo ($res['identity']); ?>">
+                                <span></span>
+                            </p>
+                        </div>
+                        <div class="truename">
+                            <p>
+                                <span>联系人电话</span>
+                                <input type="text" name="linkphone" value="<?php echo ($res['linkphone']); ?>">
+                                <span></span>
+                            </p>
+                        </div>
+                        <div class="truename">
+                            <p>
+                                <span>联系人邮箱</span>
+                                <input type="text" name="linkmail" value="<?php echo ($res['linkmail']); ?>">
+                                <span></span>
+                            </p>
+                        </div>
                     </div>
                     <!-- 上传部分 -->
                     <div class="uploaddata">
-                        <span class="smallheaderscupture">头像</span>
-                        <div class="headerscupture">
+                        <span class="smallheaderscupture">企业证明资料</span>
+                        <span class="headerscupture">
                             <span class="logo">
                                 <img src="<?php echo ($res['avatar']); ?>">
                             </span>
+                        </span>
+
+                        <div class="addform" action="" name="" >
+                             <span>上传资料</span>
+                            <input type="file" id="photo" name="pic" placeholder="企业证明资料"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
                         </div>
-
-                        <!-- <div class="addform" action="" name="" >
-                             <span>上传头像</span>
-                            <input type="file" id="photo" placeholder="上传头像"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
-                        </div> -->
-                        <!-- <i class="iconfont icon-bianji basic"></i> -->
                     </div>
-                    <div class="truename">
-                        <span>领域</span>
-                        <div><?php echo ($res['territory']); ?></div>
-                    </div>
-                    <!-- 企业信息 -->
-                    <div class="allinformation_number">
-                        <i></i>
-                        <p>
-                            <strong>企业信息</strong>
-                            <i class="iconfont icon-bianji company" onclick="checktime(2)"></i>                            
-                        </p>
-                    </div>
-                    <div class="truename">
-                        <span>企业机构信息</span>
-                        <div><?php echo ($res['company']); ?></div>
-                    </div>
-                    <div class="truename">
-                        <span>企业地址</span>
-                        <div><?php echo ($res['address']); ?></div>
-                    </div>
-                    <div class="truename">
-                        <span>官方网站</span>
-                        <div><?php echo ($res['website']); ?></div>
-                    </div>
-                    <!-- 运营人员身份信息 -->
-                    <div class="allinformation_number">
-                        <i></i>
-                        <p>
-                            <strong>运营人员身份信息</strong>
-                            <div class="letplease" id="modification">申请修改</div>
-                        </p>
-                    </div>
-                    <div class="truename">
-                        <span>联系人真实姓名</span>
-                        <div><?php echo ($res['linkman']); ?></div>
-                    </div>
-
-                    <div class="truename">
-                        <span>身份证号</span>
-                        <div><?php echo ($res['identity']); ?></div>
-                    </div>
-                    <div class="truename">
-                        <span>账号简介</span>
-                        <div><?php echo ($res['linkphone']); ?></div>
-                    </div>
-                    <div class="truename">
-                        <span>账号简介</span>
-                        <div><?php echo ($res['linkmail']); ?></div>
-                    </div>
+                    <footer class="footer" style="display: flex;justify-content: center;padding: 60px 0 30px 0;">
+                        <div class="submit" onclick="apply()">提交审核</div>
+                    </footer>
                 </div>
+                </form>
             </div>
+
 
         </div>
 
-
-
     </div>
+
+
 
 
     <script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
     <script src="/project/media/Public/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+    //上传头像
+    document.getElementById("photo").addEventListener("change",function(e){
+     var files =this.files;
+     var img = new Image();
+     var reader =new FileReader();
+     reader.readAsDataURL(files[0]);
+     reader.onload =function(e){
+       var dx =(e.total/600)/600;
+       if(dx>=2){
+         alert("文件大小大于140*100");
+         return;
+       }
+       $(".logo img").attr("src",this.result)
+       // img.src =this.result;
+        img.style.width ="60%";
+        img.style.height ="30%";
+       //  document.querySelector('.logo').appendChild(img);
+       // console.log(img);
+     }
+    })
 
-     //上传头像
-    //  document.getElementById("photo").addEventListener("change",function(e){
-    //   var files =this.files;
-    //   var img = new Image();
-    //   var reader =new FileReader();
-    //   reader.readAsDataURL(files[0]);
-    //   reader.onload =function(e){
-    //     var dx =(e.total/600)/600;
-    //     if(dx>=2){
-    //       alert("文件大小大于140*100");
-    //       return;
-    //     }
-    //     $(".logo img").attr("src",this.result)
-    //     // img.src =this.result;
-    //      img.style.width ="60%";
-    //      img.style.height ="30%";
-    //     //  document.querySelector('.logo').appendChild(img);
-    //     // console.log(img);
-    //   }
-    //  })
-    //  
-        function checktime(val){
+        function apply() {
+            var form = $('#form');
+            var formdata = new FormData(form[0]);
+            // var linkman = $('#linkman').val();
+            // var identity = $('#identity').val();
+            // var linkphone = $('#linkphone').val();
+            // var linkmail = $('#linkmail').val();
+            // var info = $('#photo').val();
             $.ajax({
-                url: '<?php echo U("Home/Account/checktime");?>',
+                url: '<?php echo U("Home/Account/doApply");?>',
+                async : false,
+                cache : false,
+                contentType : false,
+                processData : false,
                 type: 'POST',
-                data: {'action': val},
-                success: function (ret) {
-                    if(ret == 1){
-                        alert('15天内只能修改一次');
+                data: formdata,
+                success:function(ret){
+                    if(ret.status == 1){
+                        alert(ret.msg)
                     }else{
-                        if(val == 1){
-                            window.location.href = "<?php echo U('Home/Account/basicapply');?>";
-                        }else if(val == 2){
-                            window.location.href = "<?php echo U('Home/Account/company');?>";
-                        }
+                        alert(ret.msg)
                     }
                 }
             })
+           
         }
 
-        //上传头像光标失去焦点
-         $('input[readonly]').on('focus', function() {
-         $(this).trigger('blur');
-         });
-        $('#modification').click(function() {
-            window.location.href = "<?php echo U('Home/Account/apply');?>";
-        });
-        // $('.basic').click(function() {
-        //     window.location.href = "<?php echo U('Home/Account/basicapply');?>";
-        // });
-        // $('.company').click(function() {
-        //     window.location.href = "<?php echo U('Home/Account/company');?>";
-        // });
         //互动消息
         // $('.firstpage').click(function (event) {
         //     window.location.href = "<?php echo U('Home/Admin/index');?>";

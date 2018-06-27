@@ -388,7 +388,7 @@
 
                 <div class="collection">
                     <a href="javascript:;" id="collect">收藏</a>
-                    <div id="infostyle"></div>
+                    <!-- <div id="infostyle"></div> -->
                 </div>
                 <div>
                     <a href="javascript:;" id="transform">转发</a>
@@ -398,14 +398,14 @@
             <!-- 总计消息 -->
             <div class="allinformation">
                 <div class="allinformation_number" id="fansnum">
-                    <p>共3条消息</p>
+                    <!-- <p>共3条消息</p> -->
                 </div>
 
             </div>
 
             <!-- 粉丝消息部分 -->
             <div class="contentitem" id="contentitem">
-                <div class="usercomment">
+               <!--  <div class="usercomment">
                     <img src="/project/media/Public/images/index/banner_one.png" alt="">
                     <div class="commentcontent">
                         <p>
@@ -414,13 +414,13 @@
                         <p>成为了你的粉丝</p>
                         <div class="time">1小时前</div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
             <!-- 跳转页面 -->
             <div class="pageall" id="page">
-                <span>1&nbsp;/&nbsp;5</span>
+                <!-- <span>1&nbsp;/&nbsp;5</span>
                 <div class="choose_page">
                     <a href="javascript:;">
                         <i></i>
@@ -433,7 +433,7 @@
                 </div>
                 <div class="allright">
                     <a href="javascript:;">确定</a>
-                </div>
+                </div> -->
 
             </div>
 

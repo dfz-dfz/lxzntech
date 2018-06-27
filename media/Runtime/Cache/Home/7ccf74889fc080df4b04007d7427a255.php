@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>文章评论</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/icon/iconfont.css">
-    <link rel="stylesheet" href="__PUBLIC__/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/laydate.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/public.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
+    <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/public.css" media="all">
 </head>
 <style>
 
@@ -291,15 +291,15 @@
 
 <body>
          <!-- 头部 -->
-        {:W('Cate/header')}
+        <?php echo W('Cate/header');?>
     <div class="firstpage">
         <!-- 左侧导航栏 -->
         <div class="container">
-            {:W('Cate/nav')}
+            <?php echo W('Cate/nav');?>
         <div class="content">
             <!-- 最新评论 -->
             <div class="content_all">
-                <a href="{:U('Home/Comment/newMsg')}">最新评论</a>
+                <a href="<?php echo U('Home/Comment/newMsg');?>">最新评论</a>
                 <a href="javascript:;" style="margin: 0 0 0 18%">文章评论</a>
                 <span></span>
             </div>
@@ -329,7 +329,7 @@
       
 
     </div>
-    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="/project/media/Public/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(function(){
             CommentController();
@@ -337,7 +337,7 @@
         function CommentController(){
             var html = '';
             $.ajax({
-                url: "{:U('Home/Comment/articleData')}",
+                url: "<?php echo U('Home/Comment/articleData');?>",
                 type:'post',
                 success:function(data){
                     if(data.status == 1){
@@ -368,39 +368,39 @@
 
         //首页
         $('.status').click(function() {
-            window.location.href = "{:U('Home/Admin/index')}";
+            window.location.href = "<?php echo U('Home/Admin/index');?>";
         });        
         //互动消息
         $('#message').click(function() {
-            window.location.href = "{:U('Home/Messages/fans')}";
+            window.location.href = "<?php echo U('Home/Messages/fans');?>";
         });
         //粉丝量
         $('#fansnum').click(function() {
-            window.location.href = "{:U('Home/FansNumber/FansNumber')}";
+            window.location.href = "<?php echo U('Home/FansNumber/FansNumber');?>";
         });
         //粉丝量统计
         $('#fansnumcount').click(function() {
-            window.location.href = "{:U('Home/fans/index')}";
+            window.location.href = "<?php echo U('Home/fans/index');?>";
         });
         //图文统计
         $('#totalsingle').click(function() {
-            window.location.href = "{:U('Home/Count/single')}";
+            window.location.href = "<?php echo U('Home/Count/single');?>";
         });
         //我的素材
         $('#attachment').click(function() {
-            window.location.href = "{:U('Home/Attachment/index')}";
+            window.location.href = "<?php echo U('Home/Attachment/index');?>";
         });
         //写文章
         $('#edit').click(function() {
-            window.location.href = "{:U('Home/Main/edit')}";
+            window.location.href = "<?php echo U('Home/Main/edit');?>";
         });
         //我的内容
         $('#content').click(function() {
-            window.location.href = "{:U('Home/Main/main')}";
+            window.location.href = "<?php echo U('Home/Main/main');?>";
         });
         //我的内容
         $('#accountset').click(function() {
-            window.location.href = "{:U('Home/Account/index')}";
+            window.location.href = "<?php echo U('Home/Account/index');?>";
         });
 
     </script>

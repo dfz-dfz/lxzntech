@@ -473,7 +473,7 @@
             </div>
             <!-- 跳转页面 -->
             <div class="pageall" id="pageall">
-                <span>1&nbsp;/&nbsp;5</span>
+               <!--  <span>1&nbsp;/&nbsp;5</span>
                 <div class="choose_page">
                     <a href="javascript:;">
                         <i></i>
@@ -486,7 +486,7 @@
                 </div>
                 <div class="allright">
                     <a href="javascript:;">确定</a>
-                </div>
+                </div> -->
             </div>
         </div>
 

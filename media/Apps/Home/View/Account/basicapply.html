@@ -376,7 +376,7 @@
                 </div>
                 <p class="replaceall">
                     <i class="iconfont icon">&#xe60e;</i>
-                    <span style="margin-left: 15px;"> 账号信息7天内只能修改一次</span>
+                    <span style="margin-left: 15px;"> 账号信息15天内只能修改一次</span>
                 </p>
                 <!-- 公告部分 -->
                 <form action="" id="form" method="post" enctype="multipart/form-data">
@@ -479,11 +479,11 @@
             type: 'POST',
             data: formdata,
             success:function(ret){
-                if(ret == 1){
+                if(ret.status == 1){
                     alert('修改成功');
                     window.location.href='{:U("Home/Account/index")}';
                 }else{
-                    alert('修改失败');
+                    alert(ret.msg);
                 }
             }
         })

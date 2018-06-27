@@ -402,7 +402,7 @@
 
                 <div class="collection">
                     <a href="javascript:;" id="collect">收藏</a>
-                    <div id="infostyle"></div>
+                    <!-- <div id="infostyle"></div> -->
                 </div>
                 <div class="transform" style="position: relative;">
                     <a href="javascript:;" id="transform">转发</a>
@@ -413,14 +413,14 @@
             <!-- 消息总计 -->
             <div class="allinformation">
                 <div class="allinformation_number" id="fansnum">
-                    <p>共3条消息</p>
+                    <!-- <p>共3条消息</p> -->
                 </div>
 
             </div>
 
             <!-- 粉丝转发部分 -->
             <div class="contentitem" id="contentitem">
-                <div class="usercomment">
+                <!-- <div class="usercomment">
                     <img src="__PUBLIC__/images/index/banner_one.png" alt="">
                     <div class="commentcontent">
                         <p>
@@ -441,12 +441,12 @@
                             <a href="javascript:;">如果腾讯阿里消失了，世界将会变成什么样 &nbsp;?</a> &nbsp; ] </p>
                         <div class="time">1小时前</div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- 跳转页面 -->
             <div class="pageall" id="page">
-                <span>1&nbsp;/&nbsp;2</span>
+                <!-- <span>1&nbsp;/&nbsp;2</span>
                 <div class="choose_page">
                     <a href="javascript:;">
                         <i></i>
@@ -459,7 +459,7 @@
                 </div>
                 <div class="allright">
                     <a href="javascript:;">确定</a>
-                </div>
+                </div> -->
 
             </div>
 
@@ -552,9 +552,6 @@
             fans(num);
         }
 
-        $('.firstpage').click(function(event) {
-             window.location.href = "{:U('Home/Admin/index')}";
-        });
         $('#fans').click(function(event) {
             window.location.href = "{:U('Home/Messages/fans')}";
         });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>申请修改</title>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/icon/iconfont.css">
-    <link rel="stylesheet" href="__PUBLIC__/css/layui.css" media="all">
-    <link rel="stylesheet" href="__PUBLIC__/css/laydate.css" media="all">
-    <!-- <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="/project/media/Public/icon/iconfont.css">
+    <link rel="stylesheet" href="/project/media/Public/css/layui.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/laydate.css" media="all">
+    <!-- <link href="/project/media/Public/css/bootstrap.min.css" rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="__PUBLIC__/css/public.css" media="all">
+    <link rel="stylesheet" href="/project/media/Public/css/public.css" media="all">
 </head>
 <style>
     body,
@@ -355,15 +355,19 @@
        width: 30%;
     }
 
+    .inputRadio{
+        width: 15px !important;
+    }
+
 </style>
 
 <body>
     <!-- 头部 -->
-    {:W('Cate/header')}
+    <?php echo W('Cate/header');?>
     <div class="firstpage">
         <!-- 左侧导航栏 -->
         <div class="container">
-            {:W('Cate/nav')}
+            <?php echo W('Cate/nav');?>
             <div class="content">
                 <!-- 申请修改部分 -->
                 <div class="content_all">
@@ -372,44 +376,61 @@
                 </div>
                 <p class="replaceall">
                     <i class="iconfont icon">&#xe60e;</i>
-                    <span style="margin-left: 15px;"> 企业信息15天内只能修改一次</span>
+                    <span style="margin-left: 15px;"> 账号信息7天内只能修改一次</span>
                 </p>
                 <!-- 公告部分 -->
-                <div class="main">
-                    <div class="allinformation">
-                        <div class="allinformation_number">
-                            <i></i>
-                            <p>
-                                <strong>企业信息</strong>
-                            </p>
+                <form action="" id="form" method="post" enctype="multipart/form-data">
+                    <div class="main">
+                        <div class="allinformation">
+                            <div class="allinformation_number">
+                                <i></i>
+                                <p>
+                                    <strong>账号设置</strong>
+                                </p>
+                            </div>
+                            <div class="truename">
+                                <p>
+                                    <span>账号名称</span>
+                                    <input type="text" name="nickname" value="<?php echo ($res['nickname']); ?>">
+                                    <span></span>
+                                </p>
+                            </div>
+                            <div class="truename">
+                                <p>
+                                    <span>账号简介</span>
+                                    <input type="text" name="introduce" value="<?php echo ($res['introduce']); ?>">
+                                    <span></span>
+                                </p>
+                            </div>
+                            <div class="truename">
+                                <p>
+                                    <span>领域</span>
+                                    <select name="territory" style="height: 25px;width: 200px;font-size: 14px;">
+                                        <?php if(is_array($type)): foreach($type as $key=>$v): ?><option value="<?php echo ($v['id']); ?>" <?php echo ($v['id'] == $res['territory']?'selected':''); ?>><?php echo ($v['territory']); ?></option><?php endforeach; endif; ?>
+                                    </select>
+                                    <span></span>
+                                </p>
+                            </div>
                         </div>
-                        <div class="truename">
-                            <p>
-                                <span>企业机构信息</span>
-                                <input type="text" id="company" value="{$res['company']}" readonly disabled>
-                                <span></span>
-                            </p>
-                        </div>
-                        <div class="truename">
-                            <p>
-                                <span>企业地址</span>
-                                <input type="text" id="address" value="{$res['address']}">
-                                <span></span>
-                            </p>
-                        </div>
-                        <div class="truename">
-                            <p>
-                                <span>官方网站</span>
-                                <input type="text" id="website" value="{$res['website']}">
-                                <span></span>
-                            </p>
-                        </div>
-                    </div>
-                    <footer class="footer" style="display: flex;justify-content: center;padding: 60px 0 30px 0;">
-                        <div class="submit" onclick="apply()">提交</div>
-                    </footer>
-                </div>
+                        <!-- 上传部分 -->
+                        <div class="uploaddata">
+                            <span class="smallheaderscupture">头像</span>
+                            <span class="headerscupture">
+                                <span class="logo">
+                                    <img src="<?php echo ($res['avatar']); ?>">
+                                </span>
+                            </span>
 
+                            <div class="addform" action="" name="" >
+                                 <span>上传头像</span>
+                                <input type="file" name="pic" id="photo" placeholder="上传头像"  readonly unselectable="on" class="addphoto" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            </div>
+                        </div>
+                        <footer class="footer" style="display: flex;justify-content: center;padding: 60px 0 30px 0;">
+                            <div class="submit" onclick="apply()">提交</div>
+                        </footer>
+                    </div>
+                </form>
             </div>
 
 
@@ -420,67 +441,87 @@
 
 
 
-    <script src="__PUBLIC__/js/jquery-3.3.1.min.js"></script>
-    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        function apply() {
-            var company = $('#company').val();
-            var address = $('#address').val();
-            var website = $('#website').val();
-            $.ajax({
-                url: '{:U("Home/Account/editcompany")}',
-                type: 'POST',
-                data: {
-                    // 'company': company,
-                    'address': address,
-                    'website': website
-                },
-                success: function (ret) {
-                    if(ret.status == 1){
-                        alert('修改成功');
-                        window.location.href='{:U("Home/Account/index")}';
-                    }else{
-                        alert(ret.msg);
-                    }
-                }
-            })
+<script src="/project/media/Public/js/jquery-3.3.1.min.js"></script>
+<script src="/project/media/Public/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    //上传头像
+    document.getElementById("photo").addEventListener("change",function(e){
+        var files =this.files;
+        var img = new Image();
+        var reader =new FileReader();
+        reader.readAsDataURL(files[0]);
+        reader.onload =function(e){
+            var dx =(e.total/600)/600;
+            if(dx>=2){
+                alert("文件大小大于140*100");
+                return;
+            }
+            $(".logo img").attr("src",this.result);
+            // img.src =this.result;
+            img.style.width ="60%";
+            img.style.height ="30%";
+            //  document.querySelector('.logo').appendChild(img);
+            // console.log(img);
         }
-        //互动消息
-        // $('.firstpage').click(function (event) {
-        //     window.location.href = "{:U('Home/Admin/index')}";
-        // });
-        $('#message').click(function () {
-            window.location.href = "{:U('Home/Messages/fans')}";
-        });
-        //粉丝量
-        $('#fansnum').click(function () {
-            window.location.href = "{:U('Home/FansNumber/FansNumber')}";
-        });
-        //粉丝量统计
-        $('#fansnumcount').click(function () {
-            window.location.href = "{:U('Home/fans/index')}";
-        });
-        //图文统计
-        $('#totalsingle').click(function () {
-            window.location.href = "{:U('Home/Count/single')}";
-        });
-        //我的素材
-        $('#attachment').click(function () {
-            window.location.href = "{:U('Home/Attachment/index')}";
-        });
-        //写文章
-        $('#edit').click(function () {
-            window.location.href = "{:U('Home/Main/edit')}";
-        });
-        //我的内容
-        $('#content').click(function () {
-            window.location.href = "{:U('Home/Main/main')}";
-        });
-        //我的内容
-        $('#accountset').click(function () {
-            window.location.href = "{:U('Home/Account/index')}";
-        });
-    </script>
+    })
+
+    function apply() {
+        var form = $('#form');
+        var formdata = new FormData(form[0]);
+        $.ajax({
+            url: '<?php echo U("Home/Account/editbase");?>',
+            async : false,
+            cache : false,
+            contentType : false,
+            processData : false,
+            type: 'POST',
+            data: formdata,
+            success:function(ret){
+                if(ret == 1){
+                    alert('修改成功');
+                    window.location.href='<?php echo U("Home/Account/index");?>';
+                }else{
+                    alert('修改失败');
+                }
+            }
+        })
+    }
+    //互动消息
+    // $('.firstpage').click(function (event) {
+    //     window.location.href = "<?php echo U('Home/Admin/index');?>";
+    // });
+    $('#message').click(function () {
+        window.location.href = "<?php echo U('Home/Messages/fans');?>";
+    });
+    //粉丝量
+    $('#fansnum').click(function () {
+        window.location.href = "<?php echo U('Home/FansNumber/FansNumber');?>";
+    });
+    //粉丝量统计
+    $('#fansnumcount').click(function () {
+        window.location.href = "<?php echo U('Home/fans/index');?>";
+    });
+    //图文统计
+    $('#totalsingle').click(function () {
+        window.location.href = "<?php echo U('Home/Count/single');?>";
+    });
+    //我的素材
+    $('#attachment').click(function () {
+        window.location.href = "<?php echo U('Home/Attachment/index');?>";
+    });
+    //写文章
+    $('#edit').click(function () {
+        window.location.href = "<?php echo U('Home/Main/edit');?>";
+    });
+    //我的内容
+    $('#content').click(function () {
+        window.location.href = "<?php echo U('Home/Main/main');?>";
+    });
+    //我的内容
+    $('#accountset').click(function () {
+        window.location.href = "<?php echo U('Home/Account/index');?>";
+    });
+</script>
 </body>
 
 </html>

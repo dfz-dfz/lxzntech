@@ -1,0 +1,42 @@
+[ 2018-06-26T16:35:00+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_portal_media_info` WHERE ( uid =  ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_portal_media_info` WHERE ( uid =  ) LIMIT 1  
+
+[ 2018-06-26T16:47:14+08:00 ] 192.168.0.136 /project/media/home/account/editcompany.html
+ERR: Call to a member function where() on string
+
+[ 2018-06-26T17:30:14+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: Think\Model:ord方法不存在！
+
+[ 2018-06-26T17:30:35+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') ORDER BY dateline desc' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) ORDER BY dateline desc 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') ORDER BY dateline desc' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) ORDER BY dateline desc 
+
+[ 2018-06-26T17:30:44+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+
+[ 2018-06-26T17:30:45+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+
+[ 2018-06-26T17:30:45+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+
+[ 2018-06-26T17:30:45+08:00 ] 192.168.0.136 /project/media/home/account/basicapply.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `pre_media_edit_log` WHERE ( mid =  ) 
+

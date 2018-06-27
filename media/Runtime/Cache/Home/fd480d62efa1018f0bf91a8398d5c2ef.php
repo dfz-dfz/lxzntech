@@ -14,9 +14,9 @@
                 <i class="iconfont">&#xe61f;</i>
             </div>
             <!-- 智能企业部分 -->
-            <div class="share">
+            <div class="share" style="text-align: center;">
                 <a href="javascript:;"><?php echo ($nickname); ?></a>
-                <div class="sharett"><?php echo ($type); ?></div> 
+                <div class="sharett" style="width: 40px;"><?php echo ($type); ?></div> 
             </div>
             <div class="triangle-down">
                     <a href="<?php echo U('Home/Admin/logout');?>" style="text-decoration: none;">退出</a>

@@ -67,13 +67,6 @@ class AccountController extends CommonController
 	}
 
 	public function basicapply(){
-		$log = D('media_edit_log');
-		$id = $_SESSION['userdata']['id'];
-		$logData = $log -> where("mid = $id and action = 1") -> order('dateline desc') -> find();
-		if($logData){
-			$day = date('Ymd',$logData['dateline']);
-			$day = strtotime($day)+86400*15;
-		}
 		$uid = $_SESSION['userdata']['uid'];
 		$territory = D('portal_media_territory');
 		$info = D('portal_media_info');
@@ -93,6 +86,13 @@ class AccountController extends CommonController
 	}
 
 	public function editbase(){
+		$r = $this -> check(1);
+		if($r){
+			$return['status'] = 0;
+			$return['data'] = '';
+			$return['msg'] = '15天内只能修改一次';
+			$this -> ajaxReturn($return);
+		}
 		$uid = $_SESSION['userdata']['uid'];
 		$buid = $_SESSION['userdata']['buid'];
 		$user = D('portal_media_info');
@@ -109,13 +109,25 @@ class AccountController extends CommonController
 			$data2['action'] = 1;
 			$data2['dateline'] = time();
 			D('media_edit_log') -> add($data2);
-			$this -> ajaxReturn(1);
+			$return['status'] = 1;
+			$return['data'] = '';
+			$return['msg'] = '修改成功';
 		}else{
-			$this -> ajaxReturn(0);
+			$return['status'] = 0;
+			$return['data'] = '';
+			$return['msg'] = '修改失败';
 		}
+		$this -> ajaxReturn($return);
 	}
 
 	public function editcompany(){
+		$r = $this -> check(2);
+		if($r){
+			$return['status'] = 0;
+			$return['data'] = '';
+			$return['msg'] = '15天内只能修改一次';
+			$this -> ajaxReturn($return);
+		}
 		$uid = $_SESSION['userdata']['uid'];
 		$user = D('portal_media_info');
 		$data['company'] = I('company');
@@ -127,9 +139,41 @@ class AccountController extends CommonController
 			$data2['action'] = 2;
 			$data2['dateline'] = time();
 			D('media_edit_log') -> add($data2);
+			$return['status'] = 1;
+			$return['data'] = '';
+			$return['msg'] = '修改成功';
+		}else{
+			$return['status'] = 0;
+			$return['data'] = '';
+			$return['msg'] = '修改失败';
+		}
+		$this -> ajaxReturn($return);
+	}
+
+	public function checktime(){
+		$action = I('action');
+		$res = $this -> check($action);
+		if($res){
 			$this -> ajaxReturn(1);
 		}else{
 			$this -> ajaxReturn(0);
+		}
+	}
+
+	public function check($action=''){
+		$log = D('media_edit_log');
+		$id = $_SESSION['userdata']['id'];
+		$logData = $log -> where("mid = $id and action = $action") -> order('dateline desc') -> find();
+		if($logData){
+			$day = date('Ymd',$logData['dateline']);
+			$day = strtotime($day)+86400*15;
+			if($day>time()){
+				return 1;
+			}else{
+				return 0;
+			}
+		}else{
+			return 0;
 		}
 	}
 

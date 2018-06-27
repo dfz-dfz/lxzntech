@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
   <html>
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
       <title>注册</title>
-      <link rel="stylesheet" href="__PUBLIC__/css/register.css">
-      <script type="text/javascript" src="__PUBLIC__/js/jquery.min.js"></script>
+      <link rel="stylesheet" href="/project/media/Public/css/register.css">
+      <script type="text/javascript" src="/project/media/Public/js/jquery.min.js"></script>
   </head>
   <body>
       <div class="all">
@@ -70,13 +70,13 @@
                   <div class="moldLeft"><span>基本信息</span></div>
               </div>
               <!-- 信息 -->
-      <form action="{:U('Home/Register/doInfo')}" method="post" enctype="multipart/form-data" id="myform">
+      <form action="<?php echo U('Home/Register/doInfo');?>" method="post" enctype="multipart/form-data" id="myform">
               <div class="messages">
                   <div class="messagesSmall">
                       <div class="messagesText">账号名称</div>
                       <div class="input"><input type="text" id="nickname" onblur="checkname(this.value)" name="nickname" maxlength="10"></div>
                       <div class="messagesText"></div>
-                      <div class="Text">长度2-10字符，请勿使用含特殊符号，空格，详细规则查看<a href="{:U('Home/Register/named')}">《章鱼先生命名规范》</a></div>
+                      <div class="Text">长度2-10字符，请勿使用含特殊符号，空格，详细规则查看<a href="<?php echo U('Home/Register/named');?>">《章鱼先生命名规范》</a></div>
                   </div>
                   <div class="messagesBig">
                       <div class="messagesText">账号简介</div>
@@ -99,9 +99,7 @@
                       <div class="messagesText">媒体领域</div>
                       <div class="selection">
                         <select name="territory">
-                          <foreach name="territory" item="v">
-                            <option value="{$v['id']}">{$v['territory']}</option>
-                          </foreach>
+                          <?php if(is_array($territory)): foreach($territory as $key=>$v): ?><option value="<?php echo ($v['id']); ?>"><?php echo ($v['territory']); ?></option><?php endforeach; endif; ?>
                         </select>
                       </div>
                   </div>
@@ -195,12 +193,25 @@
     var code="";
     function sendCode(thisBtn)
     {
-      var phone=$("#linkphone").val();
+      var phone=$("#phone").val();
       btn = thisBtn;
       btn.disabled = true; //将按钮置为不可点击
       btn.value = nums+'秒后可重新获取';
       clock = setInterval(doLoop, 1000); //一秒执行一次
-      getCode(phone); 
+      $.ajax({
+        url:"http://www.lxzntech.com/api/sendSms.php",
+        type:"post",
+        data:{
+          'phone':phone
+        },
+        success:function(data)
+        {
+          if(data.status == 1){
+            alert('该号码已注册');
+          }
+        }
+      });  
+
     }
     function doLoop()
     {
@@ -214,36 +225,22 @@
             nums = 60; //重置时间
         }
     }
-// $.ajax({
-//         url:"http://www.lxzntech.com/api/sendSms.php",
-//         type:"post",
-//         data:{
-//           'phone':phone
-//         },
-//         success:function(data)
-//         {
-//           if(data.status == 1){
-//             alert('该号码已注册');
-//           }
-//         }
-//       }); 
-    function getCode(phone)
-    {
-      if(!phone){
-        alert('电话号码不能为空');return;
-      }
-      $.ajax({
-        url:"http://www.lxzntech.com/api/sendSms.php",
-        type:"post",
-        data:{'phone':phone},
-        async:false,
-        success:function(data)
-        {
-          var data = JSON.parse(data);
-          alert(data['msg']);
-        }
-      });
-    }
+
+    // function getCode(phone)
+    // {
+    //    $.ajax({
+    //     url:""+phone,
+    //     type:"post",
+    //     async:false,
+    //     success:function(data)
+    //     {
+
+    //     },
+    //     error:function(){
+
+    //     }
+    //   });
+    // }
 
   function previewone(file) {
       var prevDivone = document.getElementById('messageBigheaderone');
@@ -291,7 +288,7 @@
     $('#myform').submit();
   }
   function backChoose(){
-    window.location.href = "{:U('Home/Register/chooseType')}";
+    window.location.href = "<?php echo U('Home/Register/chooseType');?>";
   }
 
   function checkname(str) {
@@ -304,7 +301,7 @@
     }
     $.ajax({
         type:"POST",
-        url:"{:U('Home/register/checkname')}",
+        url:"<?php echo U('Home/register/checkname');?>",
         data:{'name':str},
         async:false,
         success:function(data){
@@ -336,7 +333,7 @@
       alert('请输入验证码');return;
     }
     $.ajax({
-      url:"{:U('Home/register/checkCode')}",
+      url:"<?php echo U('Home/register/checkCode');?>",
       type:"post",
       async:false,
       data:{

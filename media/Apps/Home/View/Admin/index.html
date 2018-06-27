@@ -88,7 +88,7 @@
 
     .header .top_first .top_main {
         display: inline-flex;
-        padding: 0 50px 0 640px;
+        padding: 0 50px 0 686px;
         position: relative;
     }
 

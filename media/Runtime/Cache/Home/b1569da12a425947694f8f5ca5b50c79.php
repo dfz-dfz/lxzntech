@@ -57,7 +57,6 @@
         height: 100%;
         width: 100%;
         background-image: url('/project/media/Public/images/login/login.png');
-        background-size: 100% 100%;
         position: relative;
     }
 
@@ -203,7 +202,7 @@
                                 </span>
                             </div>
                             <span style="position: absolute;right: 12%;">
-                                <a href="javascript:;" style="text-decoration: none;">注册</a>
+                                <a href="<?php echo U('Home/Register/register');?>" style="text-decoration: none;">注册</a>
                             </span>
                         </div>
                     </div>
